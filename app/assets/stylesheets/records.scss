@@ -1,3 +1,112 @@
-// Place all the styles related to the records controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "semantic-ui";
+
+.back {
+  background-color: #9dc8cf;
+  background-image: url("https://www.transparenttextures.com/patterns/white-paperboard.png");
+}
+
+header {
+  background-color: #2b4552;
+  height: 60px;
+  width: 100%;
+  box-shadow: 1px 6px 5px #00000061;
+  padding: 5px 10px;
+
+  .right {
+    height: 50px;
+    display: inline-block;
+    color: #9dc8cf;
+    font-weight: 600;
+    font-size: 25px;
+    position: absolute;
+    right: 10px;
+    padding: 5px;
+
+    .username {
+      height: 50px;
+      vertical-align: middle;
+    }
+  }
+}
+
+#logo {
+  height: 50px;
+  font-size: 40px;
+  font-weight: 900;
+  color: #cee4ef;
+  display: inline-block;
+}
+
+img {
+  max-width: 80%;
+  height: auto;
+}
+
+.time {
+  height: 200px;
+  width: 100%;
+  min-width: 740px;
+  margin-bottom: 40px;
+  padding: 2.5% 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .time-content {
+    display: inline-block;
+    border-radius: 5px;
+    height: 100%;
+    width: calc((100% / 3) - (20px * 2 / 3));
+    background-color: #fff;
+    color: gray;
+    font-size: 30px;
+    font-weight: 900;
+    vertical-align: middle;
+
+    .time-header {
+      background-color: #2b4552;
+      height: 40px;
+      widows: 100%;
+      color: #9dc8cf;
+      border-color: #2b4552;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      font-size: 20px;
+      padding: 10px;
+      margin: 0 auto;
+    }
+
+    p {
+      height: 100%;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      text-align: center;
+    }
+  }
+}
+
+.container {
+  padding: 15px 15px 30px 15px;
+
+  .button-list {
+    height: 100px;
+    margin-top: 10px;
+  }
+
+  table.fixed.table {
+    thead th, tbody td{
+    text-align: center;
+  }
+}
+}
+
+footer {
+  height: 150px;
+  text-align: center;
+  background-color: #2b4552;
+  color: #c1d9f1;
+}
+
+.category-select {
+  padding-bottom: 10px;
+}
