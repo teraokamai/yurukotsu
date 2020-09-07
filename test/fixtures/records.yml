@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  do_on: 2020-09-07
+  start_at: 2020-09-07 20:50:04
+  end_at: 2020-09-07 20:50:04
+  symmary: MyString
+  content: MyText
+  total: 2020-09-07 20:50:04
+  calculation: false
+
+two:
+  do_on: 2020-09-07
+  start_at: 2020-09-07 20:50:04
+  end_at: 2020-09-07 20:50:04
+  symmary: MyString
+  content: MyText
+  total: 2020-09-07 20:50:04
+  calculation: false
