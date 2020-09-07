@@ -1,0 +1,15 @@
+<h1>Categories#index</h1>
+<table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>user_id</th>
+  </tr>
+  <% @categories.each do |category| %>
+  <tr>
+    <td><%= category.id %></td>
+    <td><%= category.name %></td>
+    <td><%= category.account_id %></td>
+  </tr>
+  <% end $>
+</table>

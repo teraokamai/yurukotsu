@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_141131) do
+ActiveRecord::Schema.define(version: 2020_09_07_123036) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +20,36 @@ ActiveRecord::Schema.define(version: 2020_09_06_141131) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "account_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_categories_on_account_id"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.date "do_on", null: false
+    t.time "start_at", null: false
+    t.time "end_at"
+    t.string "sammary"
+    t.text "content"
+    t.time "total"
+    t.boolean "calculation", null: false
+    t.integer "account_id"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_records_on_account_id"
+    t.index ["category_id"], name: "index_records_on_category_id"
+  end
+
+  add_foreign_key "categories", "accounts"
+  add_foreign_key "records", "accounts"
+  add_foreign_key "records", "categories"
 end
