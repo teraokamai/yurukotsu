@@ -1,0 +1,57 @@
+/* =====================
+  header
+===================== */
+header {
+  background-color: #2b4552;
+  height: 60px;
+  width: 100%;
+  box-shadow: 1px 6px 5px #00000061;
+  padding: 5px 10px;
+
+  #logo {
+    height: 50px;
+    font-size: 40px;
+    font-weight: 900;
+    color: #cee4ef;
+    display: inline-block;
+  }
+  
+  img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .right {
+    height: 50px;
+    display: inline-block;
+    color: #9dc8cf;
+    font-weight: 600;
+    font-size: 25px;
+    position: absolute;
+    right: 10px;
+    padding: 5px;
+
+    .username {
+      height: 50px;
+      vertical-align: middle;
+    }
+  }
+}
+
+/* =====================
+  content
+===================== */
+.back {
+  background-color: #9dc8cf;
+  background-image: url("https://www.transparenttextures.com/patterns/white-paperboard.png");
+}
+
+/* =====================
+  footer
+===================== */
+footer {
+  height: 150px;
+  text-align: center;
+  background-color: #2b4552;
+  color: #c1d9f1;
+}
