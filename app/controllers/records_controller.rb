@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
   # before_action :set_board_message, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!
-  # layout "records"
+  layout "records"
 
   def index # それぞれの条件併せて取得する
     @records = Record.all.order(created_at: :desc)
@@ -23,17 +23,21 @@ class RecordsController < ApplicationController
   end
 
   def show
-    @record = target_record(params[:id])
+    @record = Record.find(params[:id])
   end
 
   def new
     @record = Record.new
+    @record.account_id = current_account.id
   end
 
   def create
     @record = Record.new record_params
-    @record.save!
-    redirect_to @record
+    if @record.save!
+      redirect_to records_path
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -55,7 +59,7 @@ class RecordsController < ApplicationController
   private
 
   def target_record(record_user_id)
-    current_account.tasks.where(id: record_id).take
+    Record.find(id: record_id)
   end
 
   def record_params
