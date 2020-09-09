@@ -1,12 +1,17 @@
-<h1>Categories#new</h1>
+<div class="back">
+  <%= render 'shared/header' %>
+  <div class="container">
+  <h1>カテゴリー新規追加</h1>
 
-<% if @category.errors.any? %>
-<ul>
-  <% @category.errors.full_messages.each do |err| %>
+  <% if @category.errors.any? %>
+  <ul>
+    <% @category.errors.full_messages.each do |err| %>
     <li><%= err %></li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
-<% end %>
-
-<%= render 'form', category: @category %>
-<p><%= link_to '一覧に戻る', categories_url %></p>
+  <%= render 'form', category: @category %>
+  <p><%= link_to '一覧に戻る', categories_url %></p>
+  </div>
+  <%= render 'shared/footer' %>
+</div>
