@@ -4,7 +4,7 @@
   </div>
   <div class="right" >
     <% if account_signed_in? %>
-      <div><button class="ui teal basic button">ログアウト</button></div>
+      <div><%= button_to 'ログアウト', destroy_account_session_path, {class: 'ui teal basic button', method: :delete } %></div>
     <% end %>
   </div>
 </header>
