@@ -22,7 +22,7 @@ module Yurukotsu
       Devise::RegistrationsController.layout "devise_registrations"
       Devise::ConfirmationsController.layout "devise"
       Devise::UnlocksController.layout "devise"
-      Devise::PasswordsController.layout "devise"
+      Devise::PasswordsController.layout "devise_password"
     end
   end
 end
