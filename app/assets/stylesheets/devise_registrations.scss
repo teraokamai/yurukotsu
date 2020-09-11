@@ -1,0 +1,76 @@
+@import "semantic-ui";
+@import "common";
+
+.box {
+  width: 350px;
+  height: 500px;
+  background-color: #fff;
+  margin: 60px auto;
+  border-radius: 4px;
+  padding: 20px 26px;
+
+  .login {
+    display: block;
+    width: 100%;
+    height: 31px;
+    margin-bottom: 14px;
+    line-height: 0.5em;
+  }
+
+  .box-regist {
+    margin-top: 15px;
+  }
+
+  .box-login {
+    border-top: 1px solid #dededf;
+
+    p {
+      text-align: center;
+      font-size: 12px;
+      color: #767676;
+      margin: 14px 0;
+    }
+  
+    a {
+      display: block;
+      width: 100%;
+      height: 31px;
+      line-height: 0.5em;
+      text-align: center;
+    }
+  }
+  
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  color: #111111;
+}
+
+.box-email,.box-username {
+  margin-bottom: 13px;
+}
+
+.box-password {
+  margin-bottom: 22px;
+}
+
+.box-email label, .box-password label , .box-username label,.box-passwordconfirm label{
+  font-weight: 700;
+  font-size: 13px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+}
+
+.column-left {
+  float: left;
+}
+
+.column-right {
+  float: right;
+}
+
