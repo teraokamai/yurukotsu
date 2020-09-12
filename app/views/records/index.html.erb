@@ -1,88 +1,90 @@
 <div class="back">
   <%= render 'shared/header' %>
   <div class="container">
-    <!-- 時間表示 -->
-    <div class="time">
-      <div class="time-content">
-        <div class="time-header">本日の合計</div>
-        <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
-      </div>
-      <div class="time-content">
-        <div class="time-header">今週の合計</div>
-        <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
-      </div>
-      <div class="time-content">
-        <div class="time-header">今までの合計</div>
-        <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
-      </div>
-    </div>
-    <!-- テーブル -->
-    <div class="ui top attached tabular menu">
-      <a class="active item">
-        本日
-      </a>
-      <!-- <a class="item">
-        全て
-      </a> -->
-        <div class="right menu category-select">
-          <p><%= link_to '記録する', new_record_path, { class: 'ui teal button' }  %></p>
-          <!-- <select class="ui selection dropdown">
-            <option value="">全て</option>
-            <option value="1">読書</option>
-            <option value="0">秘書検定</option>
-          </select> -->
+    <div class="top">
+      <!-- 時間表示 -->
+      <div class="time">
+        <div class="time-content">
+          <div class="time-header">本日の合計</div>
+          <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
         </div>
-    </div>
-    <div class="ui bottom attached segment">
-      <p>
-        <% if @records.length != 0 %>
-          <table class="ui fixed table" >
-            <thead>
-              <tr>
-                <th width="98px">日付</th>
-                <th width="114px">時間</th>
-                <th>内容</th>
-                <th width="87px">合計</th>
-                <th width="170px"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @records.each do |record| %>
-                <tr>
-                  <td><%= record.do_on %></td>
-                  <td><%= l record.start_at, format: :short %> 〜 <%= l record.end_at, format: :short %></td>
-                  <td><%= link_to record.summary, record_path(record) %></td>
-                  <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
-                  <td>
-                    <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button' } %>
-                    <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button' } %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <% else %>
-          <p>NO TASK</p>
-          <% end %>
-        <!-- ページネーション -->
-        <!-- <div class="ui pagination menu">
-          <a class="active item">
-            1
-          </a>
-          <div class="disabled item">
-            ...
+        <div class="time-content">
+          <div class="time-header">今週の合計</div>
+          <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
+        </div>
+        <div class="time-content">
+          <div class="time-header">今までの合計</div>
+          <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
+        </div>
+      </div>
+      <!-- テーブル -->
+      <div class="ui top attached tabular menu">
+        <a class="active item">
+          本日
+        </a>
+        <!-- <a class="item">
+          全て
+        </a> -->
+          <div class="right menu category-select">
+            <p><%= link_to '記録する', new_record_path, { class: 'ui teal button' }  %></p>
+            <!-- <select class="ui selection dropdown">
+              <option value="">全て</option>
+              <option value="1">読書</option>
+              <option value="0">秘書検定</option>
+            </select> -->
           </div>
-          <a class="item">
-            10
-          </a>
-          <a class="item">
-            11
-          </a>
-          <a class="item">
-            12
-          </a>
-        </div> -->
-      </p>
+      </div>
+      <div class="ui bottom attached segment">
+        <p>
+          <% if @records.length != 0 %>
+            <table class="ui fixed table" >
+              <thead>
+                <tr>
+                  <th width="98px">日付</th>
+                  <th width="114px">時間</th>
+                  <th>内容</th>
+                  <th width="87px">合計</th>
+                  <th width="170px"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @records.each do |record| %>
+                  <tr>
+                    <td><%= record.do_on %></td>
+                    <td><%= l record.start_at, format: :short %> 〜 <%= l record.end_at, format: :short %></td>
+                    <td><%= link_to record.summary, record_path(record) %></td>
+                    <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
+                    <td>
+                      <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button' } %>
+                      <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button' } %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <% else %>
+            <p>NO TASK</p>
+            <% end %>
+          <!-- ページネーション -->
+          <!-- <div class="ui pagination menu">
+            <a class="active item">
+              1
+            </a>
+            <div class="disabled item">
+              ...
+            </div>
+            <a class="item">
+              10
+            </a>
+            <a class="item">
+              11
+            </a>
+            <a class="item">
+              12
+            </a>
+          </div> -->
+        </p>
+      </div>
     </div>
   </div>
   <%= render 'shared/footer' %>
