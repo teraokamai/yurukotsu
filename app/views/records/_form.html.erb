@@ -1,0 +1,64 @@
+<%= form_for(@record, html: {class: "ui form"} ) do |form| %>
+  <div class="form-group ">
+    <label for="do_on">日にち</label><span class="required">*</span>
+    <div class="ui calendar">
+      <div class="ui input left icon">
+        <i class="calendar icon"></i>
+        <!-- <input type="text" placeholder="Date"> -->
+        <%= form.text_field :do_on, {class:"form-control", placeholder: "Date", value: Time.current} %>
+      </div>
+    </div>
+  </div>
+    <div class="form-group time">
+    <label for="start_at">開始時刻</label><span class="required">*</span>
+    <% if action_name == 'new'%>
+      <%= form.time_field :start_at, {class:"form-control", placeholder: "Start Time",value: Time.current.strftime("%H:%M")} %>
+    <% else %>
+      <%= form.time_field :start_at, {class:"form-control", placeholder: "Start Time"} %>
+    <% end %>
+  </div>
+  <div class="time-nyoro">
+    <%= image_tag 'nyoro.png' %>
+  </div>
+  <div class="form-group time">
+    <label for="end_at">終了時刻</label><span class="required">*</span>
+    <% if action_name == 'new'%>
+      <%= form.time_field :end_at, {class:"form-control", placeholder: "End Time",value: Time.current.strftime("%H:%M")} %>
+    <% else %>
+      <%= form.time_field :end_at, {class:"form-control", placeholder: "End Time"} %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <label for="total">合計時間</label><span class="required">*</span>
+    <%= form.time_field :total, {class:"form-control", placeholder: "Total Time"} %>
+  </div>
+  <div class="form-group">
+    <label for="summary">概要</label><span class="required">*</span>
+    <%= form.text_field :summary, {class:"form-control", placeholder: "Summary"} %>
+  </div>
+  <div class="form-group">
+    <label for="content">内容</label>
+    <%= form.text_area :content, {class:"form-control"} %>
+  </div>
+  <div class="form-group">
+    <label for="category_id">カテゴリー</label>
+    <%= form.collection_select :category_id, Category.all, :id, :name, :include_blank => 'カテゴリなし' %>
+  </div>
+  <%= form.hidden_field :account_id, {value: @record.account_id} %>
+  <%= form.hidden_field :calculation, {value: true} %><!-- todo:終了が入力されていない場合はfalseにしたい -->
+  <%= form.submit "保存", {class: 'ui yellow button right'} %>
+<% end %>
+
+<script>
+  $('.ui.calendar').calendar({
+    type: 'date',
+    formatter: {
+      date: function (date) {
+        var day = ('0' + date.getDate()).slice(-2);
+        var month = ('0' + (date.getMonth() + 1)).slice(-2);
+        var year = date.getFullYear();
+        return year + '/' + month + '/' + day;
+      }
+    }
+  })
+</script>

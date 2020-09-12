@@ -1,65 +1,17 @@
 <div class="back">
   <%= render 'shared/header' %>
   <div class="container">
-    <p>記録の追加</p>
-    <% if @record.errors.any? %>
-    <ul>
-      <% @record.errors.full_messages.each do |err| %>
-      <li><%= err %></li>
+    <div class="box">
+      <h1>記録の追加</h1>
+      <% if @record.errors.any? %>
+      <ul>
+        <% @record.errors.full_messages.each do |err| %>
+        <li><%= err %></li>
+        <% end %>
+      </ul>
       <% end %>
-    </ul>
-    <% end %> <%= form_for(@record, url:{controller: 'records', action: 'create'}) do |form| %>
-    <div class="form-group "></div>
-      <label for="do_on">日にち</label>
-      <div class="ui calendar">
-        <div class="ui input left icon">
-          <i class="calendar icon"></i>
-          <!-- <input type="text" placeholder="Date"> -->
-          <%= form.text_field :do_on, {class:"form-control", placeholder: "Date"} %>
-        </div>
-      </div>
+      <%= render 'form' %>
     </div>
-      <div class="form-group">
-      <label for="start_at">開始時刻</label>
-      <%= form.text_field :start_at, {class:"form-control"} %>
-    </div>
-    <div class="form-group">
-      <label for="end_at">終了時刻</label>
-      <%= form.text_field :end_at, {class:"form-control"} %>
-    </div>
-    <div class="form-group">
-      <label for="total">合計時間</label>
-      <%= form.text_field :total, {class:"form-control"} %>
-    </div>
-    <div class="form-group">
-      <label for="sammary">概要</label>
-      <%= form.text_field :sammary, {class:"form-control"} %>
-    </div>
-    <div class="form-group">
-      <label for="content">内容</label>
-      <%= form.text_area :content, {class:"form-control"} %>
-    </div>
-    <div class="form-group">
-      <label for="category_id">カテゴリー</label>
-      <%= form.text_field :category_id, {class:"form-control"} %>
-    </div>
-    <%= form.hidden_field :account_id, {value: @record.account_id} %>
-    <%= form.hidden_field :calculation, {value: true} %><!-- todo:終了が入力されていない場合はfalseにしたい -->
-    <%= form.submit "登録" %> <% end %>
   </div>
   <%= render 'shared/footer' %>
 </div>
-
-<script>
-$('.ui.calendar').calendar({
-  type: 'date',
-  formatter: {
-    date: function (date) {
-      var day = ('0' + date.getDate()).slice(-2);
-      var month = ('0' + (date.getMonth() + 1)).slice(-2);
-      var year = date.getFullYear();
-      return year + '/' + month + '/' + day;
-    }
-  }
-})
-</script>

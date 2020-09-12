@@ -5,8 +5,10 @@ header {
   background-color: #2b4552;
   height: 60px;
   width: 100%;
+  min-width: 420px;
   box-shadow: 1px 6px 5px #00000061;
   padding: 5px 10px;
+  position: relative;
 
   #logo {
     height: 50px;
@@ -37,6 +39,8 @@ header {
       width: 230px;
       font-size: 18px;
       font-weight: 400;
+      position: absolute;
+      right: -15px;
 
       li {
         list-style: none;

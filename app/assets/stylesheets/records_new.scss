@@ -1,0 +1,55 @@
+@import "semantic-ui";
+@import "common";
+
+.container {
+  padding: 15px 15px 30px 15px;
+
+  .box {
+    width: 600px;
+    height: 680px;
+    background-color: #fff;
+    margin: 60px auto;
+    border-radius: 4px;
+    padding: 20px 26px;
+
+    .required {
+      margin-left: 2px;
+      color: #f54747;
+    }
+
+    .time-nyoro {
+      display: inline-block;
+      width: 38px;
+      padding: 10px;
+      height: 35px;
+      vertical-align: middle;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .time {
+      display: inline-block;
+      width: 200px;
+    }
+
+    .right {
+      float: right;
+    }
+  }
+
+  
+
+  .form-group {
+    margin-bottom: 13px;
+  }
+
+  label {
+    font-weight: 700;
+    font-size: 13px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+  }
+}
+

@@ -8,7 +8,7 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       # 終了時刻
       t.time :end_at, null: true
       # 概要
-      t.string :sammary, nul: true
+      t.string :summary, nul: true
       # 内容
       t.text :content, null: true
       # 合計時間
