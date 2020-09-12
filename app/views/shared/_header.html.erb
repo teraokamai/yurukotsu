@@ -4,7 +4,15 @@
   </div>
   <div class="right" >
     <% if account_signed_in? %>
-      <div><%= button_to 'ログアウト', destroy_account_session_path, {class: 'ui teal basic button', method: :delete } %></div>
+      <ul class="header-menu">
+        <li>
+            <a href=""><%= current_account.username %> <i class="caret down icon"></i></a>
+            <ul>
+              <li class="child"><a href="">マイページ</a></li>
+              <li class="child"><%= link_to 'ログアウト',destroy_account_session_path, {method: :delete } %></li>
+            </ul>
+          </li>
+      </ul>
     <% end %>
   </div>
 </header>

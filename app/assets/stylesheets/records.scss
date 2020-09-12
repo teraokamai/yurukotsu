@@ -48,17 +48,27 @@
   padding: 15px 15px 30px 15px;
 
   .category-select {
-    padding-bottom: 10px;
 
     select.selection {
       height: 41px;
+    }
+
+    a {
+      height: 41px;
+      line-height: 20px;
+      min-width: 100px;
     }
   }
 
   table.fixed.table {
     thead th, tbody td{
     text-align: center;
+    }
+
+    tbody td a.b1, a.b2 {
+      display:inline-block;
+      margin-bottom: 5px;
+    }
   }
-}
 }
 
