@@ -4,6 +4,7 @@
     <div class="box">
       <h1>ログイン</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "ui form"} ) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %> 
         <div class="field box-email">
           <%= f.label :email , 'メールアドレス' %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address" %>

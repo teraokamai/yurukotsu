@@ -6,15 +6,15 @@
       <div class="time">
         <div class="time-content">
           <div class="time-header">本日の合計</div>
-          <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
+          <p><%= @day / 60 %>時間<%= @day % 60 %>分</p>
         </div>
         <div class="time-content">
           <div class="time-header">今週の合計</div>
-          <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
+          <p><%= @week / 60 %>時間<%= @week % 60 %>分</p>
         </div>
         <div class="time-content">
           <div class="time-header">今までの合計</div>
-          <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
+          <p><%= @all / 60 %>時間<%= @all % 60 %>分</p>
         </div>
       </div>
       <!-- テーブル -->
@@ -40,9 +40,9 @@
             <table class="ui fixed table" >
               <thead>
                 <tr>
-                  <th width="98px">日付</th>
+                  <th width="150px">日付</th>
                   <th width="114px">時間</th>
-                  <th>内容</th>
+                  <th>概要</th>
                   <th width="87px">合計</th>
                   <th width="170px"></th>
                 </tr>
@@ -50,13 +50,13 @@
               <tbody>
                 <% @records.each do |record| %>
                   <tr>
-                    <td><%= record.do_on %></td>
+                    <td><%= l record.do_on, format: :long %></td>
                     <td><%= l record.start_at, format: :short %> 〜 <%= l record.end_at, format: :short %></td>
                     <td><%= link_to record.summary, record_path(record) %></td>
                     <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
                     <td>
                       <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button' } %>
-                      <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button' } %>
+                      <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button', data: { confirm: "このデータを削除してもよろしいですか?" }  } %>
                     </td>
                   </tr>
                 <% end %>
