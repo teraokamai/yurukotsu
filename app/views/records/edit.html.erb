@@ -1,24 +1,18 @@
-<h1>編集</h1>
-<% if @blogconfig.errors.any? %>
-<ul>
-  <% blogconfig.errors.full_messages.each do |err| %>
-    <li><%= err %></li>
-  <% end %>
-</ul>
-<% end %>
-<%= form_for(@blogconfig, url:{controller: 'blogconfigs', action: 'edit'}) do |form| %>
-<div class="form_group">
-  <label for="title">Title</label>
-  <%= form.text_field :title, {class: "form-control"} %>
+<div class="back">
+  <%= render 'shared/header' %>
+  <div class="container">
+    <div class="box">
+      <h1>記録の編集</h1>
+      <% if @record.errors.any? %>
+      <ul>
+        <% @record.errors.full_messages.each do |err| %>
+        <li><%= err %></li>
+        <% end %>
+      </ul>
+      <% end %>
+      <%= render 'form' %>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
 </div>
-<div class="form_group">
-  <label for="subtitle">Sub Title</label>
-  <%= form.text_field :subtitle, {class: "form-control"} %>
-</div>
-<div class="form_group">
-  <label for="stylename">Style Name</label>
-  <%= form.text_field :stylename, {class: "form-control"} %>
-</div>
-<div><button class="ui teal button">戻る</button></div>
-<div><%= form.submit "更新" %></div>
-<% end %>
+

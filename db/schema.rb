@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_09_07_123036) do
-
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -37,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_123036) do
     t.date "do_on", null: false
     t.time "start_at", null: false
     t.time "end_at"
-    t.string "sammary"
+    t.string "summary"
     t.text "content"
     t.time "total"
     t.boolean "calculation", null: false
