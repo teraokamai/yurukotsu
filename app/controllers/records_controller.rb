@@ -1,9 +1,9 @@
 class RecordsController < ApplicationController
   # before_action :set_board_message, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!
-  layout "records"
+  # layout "records"
 
-  def index # それぞれの条件併せて取得する
+  def index # それぞれの条件にあわせて取得する
     @records = Record.all.order(created_at: :desc)
     # @day_time = Record.all
     # @week_time = Record.all
@@ -20,15 +20,18 @@ class RecordsController < ApplicationController
     # @record = users[0]
     # @record = Record.new
     # @record.record_user_id = @record_user.id
+    render :layout => "records"
   end
 
   def show
     @record = Record.find(params[:id])
+    render :layout => "records"
   end
 
   def new
     @record = Record.new
     @record.account_id = current_account.id
+    render :layout => "records_new"
   end
 
   def create
@@ -36,31 +39,29 @@ class RecordsController < ApplicationController
     if @record.save!
       redirect_to records_path
     else
+      render :layout => "records_new"
       render "new"
     end
   end
 
   def edit
-    @record = target_record(params[:id])
+    @record = Record.find(params[:id])
+    render :layout => "records_new"
   end
 
   def update
-    @record = target_record(params[:id])
+    @record = Record.find(params[:id])
     @record.update(record_params)
-    redirect_to @record
+    redirect_to records_path
   end
 
   def destroy
-    @task = target_record(params[:id])
-    @task.destroy
+    @record = Record.find(params[:id])
+    @record.destroy
     redirect_to records_url
   end
 
   private
-
-  def target_record(record_user_id)
-    Record.find(id: record_id)
-  end
 
   def record_params
     params.require(:record).permit(:do_on, :start_at, :end_at, :sammary, :content, :total, :calculation, :category_id, :account_id)

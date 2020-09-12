@@ -1,53 +1,82 @@
 @import "semantic-ui";
 @import "common";
 
-.time {
-  height: 200px;
-  width: 100%;
-  min-width: 740px;
-  margin-bottom: 40px;
-  padding: 2.5% 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  .time-content {
-    display: inline-block;
-    border-radius: 5px;
-    height: 100%;
-    width: calc((100% / 3) - (20px * 2 / 3));
-    background-color: #fff;
-    color: gray;
-    font-size: 30px;
-    font-weight: 900;
-    vertical-align: middle;
-
-    .time-header {
-      background-color: #2b4552;
-      height: 40px;
-      widows: 100%;
-      color: #9dc8cf;
-      border-color: #2b4552;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      font-size: 20px;
-      padding: 10px;
-      margin: 0 auto;
-    }
-
-    p {
-      height: 100%;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      text-align: center;
-    }
-  }
-}
-
 .container {
   padding: 15px 15px 30px 15px;
 
+  .time {
+
+    .time-content {
+      display: inline-block;
+      border-radius: 5px;
+      height: 100%;
+      background-color: #fff;
+      color: gray;
+      font-size: 30px;
+      font-weight: 900;
+      vertical-align: middle;
+
+      .time-header {
+        background-color: #2b4552;
+        height: 40px;
+        width: 100%;
+        color: #9dc8cf;
+        border-color: #2b4552;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 20px;
+        padding: 10px;
+        margin: 0 auto;
+      }
+
+      p {
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        text-align: center;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .time {
+      width: 100%;
+      height: 350px;
+      display: block;
+
+      .time-content {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 20px;
+
+        p {
+          line-height: 56px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .time {
+      height: 200px;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 2.5% 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .time-content {
+        width: calc((100% / 3) - (20px * 2 / 3));
+
+        p {
+          line-height: 108px;
+        }
+      }
+    }
+  }
+
   .category-select {
+    height: 48px;
 
     select.selection {
       height: 41px;
@@ -61,14 +90,15 @@
   }
 
   table.fixed.table {
-    thead th, tbody td{
-    text-align: center;
+    thead th,
+    tbody td {
+      text-align: center;
     }
 
-    tbody td a.b1, a.b2 {
-      display:inline-block;
+    tbody td a.b1,
+    a.b2 {
+      display: inline-block;
       margin-bottom: 5px;
     }
   }
 }
-
