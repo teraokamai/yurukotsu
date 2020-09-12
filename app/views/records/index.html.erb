@@ -16,29 +16,7 @@
         <p>３５時間２０分</p>
       </div>
     </div>
-    <% if @records.length != 0 %>
-    <table border="1" style="border-color: black">
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <% @records.each do |record| %>
-      <tr>
-        <td><%= record.do_on %></td>
-        <td><%= record.start_at %></td>
-        <td><%= link_to '詳細', record_path(record) %></td>
-        <td><%= link_to '編集', edit_record_path(record) %></td>
-        <td><%= link_to '削除', record_path(record), method: :delete %></td>
-      </tr>
-      <% end %>
-    </table>
-    <% else %>
-    <p>NO TASK</p>
-    <% end %>
-    <p><%= link_to 'ToDoの作成', new_record_path %></p>
+    <!-- テーブル -->
     <div class="ui top attached tabular menu">
       <a class="active item">
         本日
@@ -47,7 +25,7 @@
         全て
       </a> -->
         <div class="right menu category-select">
-          <button class="ui teal button">記録する</button>
+          <p><%= link_to '記録する', new_record_path, { class: 'ui teal button' }  %></p>
           <select class="ui selection dropdown">
             <option value="">全て</option>
             <option value="1">読書</option>
@@ -56,41 +34,37 @@
         </div>
     </div>
     <div class="ui bottom attached segment">
-      <p>        
-        <table class="ui fixed table">
-          <thead>
-            <tr>
-              <th width="98px">日付</th>
-              <th width="114px">時間</th>
-              <th>内容</th>
-              <th width="74px">合計</th>
-              <th width="169px"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2020/09/05</td>
-              <td>09:00 〜 10:30</td>
-              <td>読書</td>
-              <td>01h30m</td>
-              <td><button class="ui teal button">編集</button><button class="ui red button">削除</button></td>
-            </tr>
-            <tr>
-              <td>2020/09/05</td>
-              <td>13:00 〜 14:30</td>
-              <td>マネー講座</td>
-              <td>01h30m</td>
-              <td><button class="ui teal button">編集</button><button class="ui red button">削除</button></td>
-            </tr>
-            <tr>
-              <td>2020/09/05</td>
-              <td>16:00 〜 17:00</td>
-              <td>秘書検定の勉強</td>
-              <td>01h00m</td>
-              <td><button class="ui teal button">編集</button><button class="ui red button">削除</button></td>
-            </tr>
-          </tbody>
-        </table>
+      <p>
+        <% if @records.length != 0 %>
+          <table class="ui fixed table" >
+            <thead>
+              <tr>
+                <th width="98px">日付</th>
+                <th width="114px">時間</th>
+                <th>内容</th>
+                <th width="74px">合計</th>
+                <th width="169px"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @records.each do |record| %>
+                <tr>
+                  <td><%= record.do_on %></td>
+                  <td><%= record.start_at %> 〜 <%= record.end_at %></td>
+                  <td><%= record.sammary%></td>
+                  <td>01h30m</td>
+                  <td>
+                    <%= link_to '詳細', record_path(record), { class: 'ui teal button b1' } %>
+                    <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button b2' } %>
+                    <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button b3' } %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <% else %>
+          <p>NO TASK</p>
+          <% end %>
         <!-- ページネーション -->
         <div class="ui pagination menu">
           <a class="active item">
