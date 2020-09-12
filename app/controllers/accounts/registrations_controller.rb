@@ -2,6 +2,7 @@
 
 class Accounts::RegistrationsController < Devise::RegistrationsController
   layout "devise_registrations"
+  before_action :authenticate_account!, only: [:show]
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -15,6 +16,10 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
+
+  def show
+    render :layout => "devise_account"
+  end
 
   # GET /resource/edit
   # def edit
