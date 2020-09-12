@@ -5,15 +5,15 @@
     <div class="time">
       <div class="time-content">
         <div class="time-header">本日の合計</div>
-        <p>０３時間３０分</p>
+        <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
       </div>
       <div class="time-content">
         <div class="time-header">今週の合計</div>
-        <p>１３時間４０分</p>
+        <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
       </div>
       <div class="time-content">
         <div class="time-header">今までの合計</div>
-        <p>３５時間２０分</p>
+        <p><%= @total / 60 %>時間<%= @total % 60 %>分</p>
       </div>
     </div>
     <!-- テーブル -->
@@ -42,8 +42,8 @@
                 <th width="98px">日付</th>
                 <th width="114px">時間</th>
                 <th>内容</th>
-                <th width="74px">合計</th>
-                <th width="169px"></th>
+                <th width="87px">合計</th>
+                <th width="170px"></th>
               </tr>
             </thead>
             <tbody>
@@ -51,12 +51,11 @@
                 <tr>
                   <td><%= record.do_on %></td>
                   <td><%= l record.start_at, format: :short %> 〜 <%= l record.end_at, format: :short %></td>
-                  <td><%= record.summary%></td>
-                  <td>01h30m</td>
+                  <td><%= link_to record.summary, record_path(record) %></td>
+                  <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
                   <td>
-                    <%= link_to '詳細', record_path(record), { class: 'ui teal button b1' } %>
-                    <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button b2' } %>
-                    <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button b3' } %>
+                    <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button' } %>
+                    <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button' } %>
                   </td>
                 </tr>
               <% end %>
