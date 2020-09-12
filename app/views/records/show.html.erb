@@ -1,25 +1,53 @@
 <div class="back">
-<%= render 'shared/header' %>
+  <%= render 'shared/header' %>
   <div class="container">
-    <!-- 時間表示 -->
-    <div class="time">
-      <div class="time-content">
-        <div class="time-header">本日の合計</div>
-        <p>０３時間３０分</p>
+    <div class="box">
+      <h1>記録</h1>
+      <%= link_to '編集', edit_record_path(@record), { class: 'ui yellow button right' } %>
+      <div class="output">
+        <label for="summary">概要</label>
+        <div class="el">
+          <%= @record.summary %>
+        </div>
       </div>
-      <div class="time-content">
-        <div class="time-header">今週の合計</div>
-        <p>１３時間４０分</p>
+      <div class="output">
+        <label for="do_on">日にち</label>
+        <div class="el">
+          <%= @record.do_on %>
+        </div>
       </div>
-      <div class="time-content">
-        <div class="time-header">今までの合計</div>
-        <p>３５時間２０分</p>
+      <div class="output">
+        <label for="start_at">時間</label>
+        <div class="el">
+          <%= l @record.start_at, format: :short %>
+          <div class="time-nyoro">
+            <%= image_tag 'nyoro.png' %>
+          </div>
+          <%= l @record.end_at, format: :short %>
+        </div>
+      </div>
+      <div class="output">
+        <label for="total">合計時間</label>
+        <div class="el">
+          <%= @record.total %>時間
+        </div>
+      </div>
+      <div class="output">
+        <label for="category_id">カテゴリー</label>
+        <div class="el">
+          <%= @record.category.name %>
+        </div>
+      </div>
+      <div class="output">
+        <label for="content">内容</label>
+        <div class="el">
+          <%= @record.content %>
+        </div>
+      </div>
+      <div class="bottom_button">
+        <%= link_to '編集', edit_record_path(@record), { class: 'ui yellow button right' } %>
       </div>
     </div>
-
-    <!-- main -->
-    
-    </div> 
   </div>
   <%= render 'shared/footer' %>
 </div>

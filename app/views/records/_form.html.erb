@@ -28,22 +28,24 @@
       <%= form.time_field :end_at, {class:"form-control", placeholder: "End Time"} %>
     <% end %>
   </div>
-  <div class="form-group">
+  <div class="form-group time">
     <label for="total">合計時間</label><span class="required">*</span>
-    <%= form.time_field :total, {class:"form-control", placeholder: "Total Time"} %>
+    <%= form.text_field :total, {class:"form-control", placeholder: "Total Time"} %>
   </div>
+  <span>時間</span>
   <div class="form-group">
     <label for="summary">概要</label><span class="required">*</span>
     <%= form.text_field :summary, {class:"form-control", placeholder: "Summary"} %>
   </div>
   <div class="form-group">
-    <label for="content">内容</label>
-    <%= form.text_area :content, {class:"form-control"} %>
-  </div>
-  <div class="form-group">
     <label for="category_id">カテゴリー</label>
     <%= form.collection_select :category_id, Category.all, :id, :name, :include_blank => 'カテゴリなし' %>
   </div>
+  <div class="form-group">
+    <label for="content">内容</label>
+    <%= form.text_area :content, {class:"form-control"} %>
+  </div>
+
   <%= form.hidden_field :account_id, {value: @record.account_id} %>
   <%= form.hidden_field :calculation, {value: true} %><!-- todo:終了が入力されていない場合はfalseにしたい -->
   <%= form.submit "保存", {class: 'ui yellow button right'} %>

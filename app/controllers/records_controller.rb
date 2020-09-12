@@ -5,6 +5,7 @@ class RecordsController < ApplicationController
 
   def index # それぞれの条件にあわせて取得する
     @records = Record.all.order(created_at: :desc)
+    @total = Record.all.sum(:total)
     # @day_time = Record.all
     # @week_time = Record.all
     # @all_time = Record.all
@@ -25,7 +26,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
-    render :layout => "records"
+    render :layout => "records_show"
   end
 
   def new
@@ -64,6 +65,6 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:do_on, :start_at, :end_at, :sammary, :content, :total, :calculation, :category_id, :account_id)
+    params.require(:record).permit(:do_on, :start_at, :end_at, :summary, :content, :total, :calculation, :category_id, :account_id)
   end
 end
