@@ -5,10 +5,9 @@ class RecordsController < ApplicationController
 
   def index # それぞれの条件にあわせて取得する
     @records = Record.all.order(created_at: :desc)
-    @total = Record.all.sum(:total)
-    # @day_time = Record.all
-    # @week_time = Record.all
-    # @all_time = Record.all
+    @day = Record.all.sum(:total)
+    @week = Record.all.sum(:total)
+    @all = Record.all.sum(:total)
     # @records = Record.page(params[:page]).order("created_at desc")
     # users = BoardUser.where("account_id == ?", current_account.id)
     # if users[0] == nil
@@ -40,7 +39,7 @@ class RecordsController < ApplicationController
     if @record.save!
       redirect_to records_path
     else
-      render :layout => "records_new"
+      # render :layout => "records_new"
       render "new"
     end
   end
@@ -52,8 +51,12 @@ class RecordsController < ApplicationController
 
   def update
     @record = Record.find(params[:id])
-    @record.update(record_params)
-    redirect_to records_path
+    if @record.update(record_params)
+      redirect_to records_path
+    else
+      # render :layout => "records_new"
+      render "edit"
+    end
   end
 
   def destroy
