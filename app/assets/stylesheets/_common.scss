@@ -31,9 +31,49 @@ header {
     right: 10px;
     padding: 5px;
 
-    .username {
-      height: 50px;
-      vertical-align: middle;
+    .header-menu {
+      height: 2rem;
+      margin: 0 auto;
+      width: 230px;
+      font-size: 18px;
+      font-weight: 400;
+
+      li {
+        list-style: none;
+        position: relative;
+
+        & > a {
+          color: #98c2c9;
+          display: block;
+          height: 40px;
+          line-height: 35px;
+          text-align: center;
+          text-decoration: none;
+          width: 100%;
+        }
+
+        li.child {
+          background-color: #325363;
+          height: 0;
+          overflow: hidden;
+          transition: 0.5s;
+          top: 10px;
+          left: -25px;
+          
+          a {
+            line-height: 47px;
+          }
+
+          &:hover {
+            background-color: #447188;
+          }
+        }
+
+        &:hover li.child {
+          height: 50px;
+          overflow: visible;
+        }
+      }
     }
   }
 }
