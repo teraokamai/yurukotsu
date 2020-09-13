@@ -43,7 +43,11 @@
           全て
         </a> -->
           <div class="right menu category-select">
-            <p><%= link_to '記録する', new_record_path, { class: 'ui teal button' }  %></p>
+            <p>
+              <%= link_to new_record_path, { class: 'ui icon teal button'} do %>
+                <i class="plus icon"></i>
+              <% end %>
+            </p>
             <!-- <select class="ui selection dropdown">
               <option value="">全て</option>
               <option value="1">読書</option>
@@ -72,8 +76,14 @@
                     <td><%= link_to record.summary, record_path(record) %></td>
                     <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
                     <td>
-                      <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button' } %>
-                      <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button', data: { confirm: "このデータを削除してもよろしいですか?" }  } %>
+                      <!-- <%= link_to '編集', edit_record_path(record), { class: 'ui yellow button' } %> -->
+                      <%= link_to edit_record_path(record), { class: 'ui circular icon button yellow' } do %>
+                        <i class="pencil alternate icon"></i>
+                      <% end %>
+                      <%= link_to record_path(record), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                      <i class="minus icon"></i>
+                      <% end %>
+                      <!-- <%= link_to '削除', record_path(record), {method: :delete, class: 'ui red button', data: { confirm: "このデータを削除してもよろしいですか?" }  } %> -->
                     </td>
                   </tr>
                 <% end %>
