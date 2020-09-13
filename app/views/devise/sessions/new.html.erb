@@ -10,9 +10,9 @@
     <div class="box">
       <h1>ログイン</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "ui form"} ) do |f| %>
-        <div class="field box-email">
-          <%= f.label :email , 'メールアドレス' %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address" %>
+        <div class="field box-username">
+          <%= f.label :username ,'ユーザー名'%>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "username" %>
         </div>
         <div class="field box-password">
           <div class="column-left"><%= f.label :password , 'パスワード' %></div>
