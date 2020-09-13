@@ -1,6 +1,11 @@
 ---
 ja:
   activerecord:
+    models:
+      category: カテゴリー
+    attributes:
+      category:
+        name: カテゴリ名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

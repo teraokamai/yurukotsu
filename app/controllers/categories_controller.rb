@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   layout "categories"
 
   def index
-    @categories = Category.all
+    @categories = Category.where(account_id: current_account.id)
   end
 
   def new
