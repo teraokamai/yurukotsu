@@ -8,6 +8,7 @@
         <li>
             <a href=""><%= current_account.username %> <i class="caret down icon"></i></a>
             <ul>
+              <li class="child"><%= link_to 'カテゴリ一覧',categories_path %></li>
               <li class="child"><%= link_to 'マイページ',accounts_path %></li>
               <li class="child"><%= link_to 'ログアウト',destroy_account_session_path, {method: :delete,data: { confirm: "ログアウトしてよろしいですか?" } } %></li>
             </ul>
