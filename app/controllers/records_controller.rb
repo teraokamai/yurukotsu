@@ -8,6 +8,7 @@ class RecordsController < ApplicationController
     @day = Record.all.sum(:total)
     @week = Record.all.sum(:total)
     @all = Record.all.sum(:total)
+    @categories = Category.all
     # @records = Record.page(params[:page]).order("created_at desc")
     # users = BoardUser.where("account_id == ?", current_account.id)
     # if users[0] == nil

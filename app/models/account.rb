@@ -16,13 +16,10 @@ class Account < ApplicationRecord
       where(conditions).first
     end
   end
+  validates :email, uniqueness: false
 
   validates_uniqueness_of :username
   validates_presence_of :username
-
-  def email_required?
-    false
-  end
 
   def email_changed?
     false

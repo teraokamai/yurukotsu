@@ -1,52 +1,41 @@
 <div class="back">
   <%= render 'shared/header' %>
   <div class="container">
-    <h1>カテゴリ一覧</h1>
-    <%= link_to '新規作成', new_category_path, { class: 'ui teal button' } %> 
-    <% if @categories.length != 0
-    %>
-    <table class="ui fixed table">
-      <tr>
-        <th>カテゴリID</th>
-        <th>カテゴリ名</th>
-        <th>ユーザーID</th>
-        <th></th>
-      </tr>
-      <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.id %></td>
-        <td><%= category.name %></td>
-        <td><%= category.account_id %></td>
-        <td><%= link_to '編集', edit_category_path(category), { class: 'ui teal button' } %>
-          <%= button_to '削除', category_path(category), {class: 'ui red button', method: :delete,
-          data: { confirm: '削除してもよろしいですか？' }} %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-    <% else %> NO DATA <% end %>
-    <script>
-      window.onload = () => {
-        class Confirm {
-          constructor(el) {
-            this.message = el.getAttribute("data-confirm");
-            if (this.message) {
-              el.form.addEventListener("submit", this.confirm.bind(this));
-            }
-          }
-
-          confirm(e) {
-            if (!window.confirm(this.message)) {
-              e.preventDefault();
-            }
-          }
-        }
-
-        document.querySelector("[data-confirm]") = () => {
-          new Confirm(el);
-        };
-      };
-    </script>
+    <div class="top">
+      <div class="box">
+        <h1>カテゴリ一覧</h1>
+        <%= link_to new_category_path, { class: 'ui circular icon teal button right'} do %>
+          <i class="plus icon"></i>
+        <% end %>
+        <table class="ui fixed table category-table">
+          <thead>
+            <tr>
+              <!-- <th>カテゴリID</th> -->
+              <th>カテゴリ名</th>
+              <!-- <th>ユーザーID</th> -->
+              <th width="102px"></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @categories.each do |category| %>
+              <tr>
+                <!-- <td><%= category.id %></td> -->
+                <td><%= category.name %></td>
+                <!-- <td><%= category.account_id %></td> -->
+                <td>
+                  <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow' } do %>
+                    <i class="pencil alternate icon"></i>
+                  <% end %>
+                  <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                    <i class="minus icon"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   <%= render 'shared/footer' %>
 </div>
