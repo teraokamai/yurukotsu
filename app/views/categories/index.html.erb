@@ -10,18 +10,14 @@
         <table class="ui fixed table category-table">
           <thead>
             <tr>
-              <!-- <th>カテゴリID</th> -->
               <th>カテゴリ名</th>
-              <!-- <th>ユーザーID</th> -->
               <th width="102px"></th>
             </tr>
           </thead>
           <tbody>
               <% @categories.each do |category| %>
               <tr>
-                <!-- <td><%= category.id %></td> -->
                 <td><%= category.name %></td>
-                <!-- <td><%= category.account_id %></td> -->
                 <td>
                   <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow' } do %>
                     <i class="pencil alternate icon"></i>
