@@ -1,6 +1,23 @@
 <div class="back">
   <%= render 'shared/header' %>
   <div class="container">
+    <% if alert %>
+      <div class="ui error message">
+        <i class="close icon"></i>
+        <div class="header">
+          入力項目を確認してください。
+        </div>
+        <ul class="list">
+          <li><%= notice %></li>
+          <li><%= alert %></li>
+        </ul>
+      </div>
+    <% end %>
+    <% if notice %>
+      <div class="ui green message">
+        <%= notice %>
+      </div>
+    <% end %>
     <div class="top">
       <!-- 時間表示 -->
       <div class="time">
