@@ -10,6 +10,11 @@
           <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "username" %>
         </div>
 
+        <div class="field">
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address""  %>
+        </div>
+
         <div class="field box-password">
           <%= f.label :password ,'パスワード(6文字以上)' %>
           <%= f.password_field :password, autocomplete: "new-password", placeholder: "password"  %>

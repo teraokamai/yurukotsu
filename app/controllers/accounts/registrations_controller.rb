@@ -13,9 +13,10 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    Category.create(name: "カテゴリなし", account_id: current_account.id)
+  end
 
   def show
     render :layout => "devise_account"
