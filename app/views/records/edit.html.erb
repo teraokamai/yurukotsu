@@ -3,13 +3,15 @@
   <div class="container">
     <div class="box">
       <h1>記録の編集</h1>
-      <% if @record.errors.any? %>
-      <ul>
-        <% @record.errors.full_messages.each do |err| %>
-        <li><%= err %></li>
+      <div id="error_explanation">
+        <% if @record.errors.any? %>
+        <ul>
+          <% @record.errors.full_messages.each do |err| %>
+          <li><%= err %></li>
+          <% end %>
+        </ul>
         <% end %>
-      </ul>
-      <% end %>
+      </div>
       <%= render 'form' %>
     </div>
   </div>

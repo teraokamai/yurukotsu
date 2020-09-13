@@ -29,5 +29,28 @@
     .category-table {
       text-align: center;
     }
+
+    label {
+      font-weight: 700;
+      font-size: 13px;
+      padding-left: 2px;
+      padding-bottom: 2px;
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .bottom_link {
+      display: inline-block;
+      height: 39px;
+      width: 90px;
+      position: relative;
+
+      .category-back {
+        position: absolute;
+        bottom: 0;
+      }
+    }
   }
 }
