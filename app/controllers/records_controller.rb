@@ -1,26 +1,18 @@
 class RecordsController < ApplicationController
-  # before_action :set_board_message, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!
-  # layout "records"
 
-  def index # それぞれの条件にあわせて取得する
-    @records = Record.all.order(created_at: :desc)
-    @day = Record.all.sum(:total)
-    @week = Record.all.sum(:total)
-    @all = Record.all.sum(:total)
-    @categories = Category.all
+  def index
+    day_start = Time.zone.now.beginning_of_day
+    day_end = Time.zone.now.end_of_day
+    lastweek = day_start - 6.day
+
+    @records = Record.where(account_id: current_account.id).order(do_on: :desc, start_at: :desc, end_at: :desc)
+    @day = Record.where("account_id == ? and do_on between ? and ?", current_account.id, day_start, day_end).sum(:total)
+    @week = Record.where("account_id == ? and do_on between ? and ?", current_account.id, lastweek, day_end).sum(:total)
+    @all = Record.where(account_id: current_account.id).sum(:total)
+    @categories = Category.where(account_id: current_account.id)
     # @records = Record.page(params[:page]).order("created_at desc")
-    # users = BoardUser.where("account_id == ?", current_account.id)
-    # if users[0] == nil
-    #   record = BoardUser.new
-    #   record.account_id = current_account.id
-    #   record.nickname = "<<no name>>"
-    #   record.save
-    #   records = BoardUser.where "account_id == ?", current_account.id
-    # end
-    # @record = users[0]
-    # @record = Record.new
-    # @record.record_user_id = @record_user.id
+
     render :layout => "records"
   end
 
