@@ -4,7 +4,6 @@
     <div class="ui calendar">
       <div class="ui input left icon">
         <i class="calendar icon"></i>
-        <!-- <input type="text" placeholder="Date"> -->
         <%= form.text_field :do_on, {class:"form-control", placeholder: "Date", value: Time.current} %>
       </div>
     </div>
@@ -39,8 +38,7 @@
   </div>
   <div class="form-group">
     <label for="category_id">カテゴリー</label>
-    <!-- <%= form.collection_select :category_id, Category.all, :id, :name, :include_blank => 'カテゴリなし' %> -->
-    <%= form.collection_select :category_id, Category.all, :id, :name %>
+     <%= form.collection_select :category_id, Category.where(account_id: current_account.id), :id, :name %>
   </div>
   <div class="form-group">
     <label for="content">内容</label>
@@ -48,7 +46,7 @@
   </div>
 
   <%= form.hidden_field :account_id, {value: @record.account_id} %>
-  <%= form.hidden_field :calculation, {value: true} %><!-- todo:終了が入力されていない場合はfalseにしたい -->
+  <%= form.hidden_field :calculation, {value: true} %>
   <%= form.submit "保存", {class: 'ui yellow button right'} %>
 <% end %>
 
