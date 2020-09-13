@@ -1,6 +1,6 @@
 @import "semantic-ui";
 @import "common";
-@import "_devise-common";
+@import "devise-common";
 
 .box {
   width: 350px;
@@ -60,7 +60,7 @@ h1 {
   margin-bottom: 22px;
 }
 
-.box-email label, .box-password label , .box-username label,.box-passwordconfirm label{
+.box-email label, .box-password label , .box-username label,.box-passwordconfirm label, .current_password label {
   font-weight: 700;
   font-size: 13px;
   padding-left: 2px;

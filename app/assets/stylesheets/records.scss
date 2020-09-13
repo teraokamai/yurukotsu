@@ -4,8 +4,10 @@
 .container {
   padding: 15px 15px 30px 15px;
 
+  /* =====================
+  時間表示
+  ===================== */
   .time {
-
     .time-content {
       display: inline-block;
       border-radius: 5px;
@@ -75,6 +77,25 @@
     }
   }
 
+  .category-display {
+    position: relative;
+  }
+
+  .top .accordion.category-all {
+    width: 200px;
+    display: inline-block;
+  }
+
+  .top .category-add {
+    height: 40px;
+    width: 40px;
+    line-height: 20px;
+    display: inline-block;
+    margin-left: 5px;
+    top: 0;
+    position: absolute;
+  }
+
   .category-select {
     height: 48px;
 
@@ -85,7 +106,7 @@
     a {
       height: 41px;
       line-height: 20px;
-      min-width: 100px;
+      min-width: 80px;
     }
   }
 
@@ -94,6 +115,13 @@
     tbody td {
       text-align: center;
     }
+  }
+
+  .norecords {
+    text-align: center;
+    font-weight: 600;
+    color: #00b5ad;
+    font-size: 19px;
   }
 }
 
