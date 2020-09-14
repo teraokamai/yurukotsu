@@ -30,8 +30,8 @@
   <div class="form-group time">
     <label for="total">合計時間</label>
     <div class="total">
-      <input type="text" id="h"><span>時間</span>
-      <input type="text" id="m"><span>分</span>
+      <input type="text" id="h" readonly="true"><span>時間</span>
+      <input type="text" id="m" readonly="true"><span>分</span>
     </div>
     <%= form.hidden_field :total, {id: "total", class:"form-control"} %>
   </div>
