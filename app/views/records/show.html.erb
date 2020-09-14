@@ -29,7 +29,7 @@
       <div class="output">
         <label for="total">合計時間</label>
         <div class="el">
-          <%= @record.total %>分
+          <%= @record.total / 60 %>時間<%= @record.total % 60 %>分
         </div>
       </div>
       <div class="output">
