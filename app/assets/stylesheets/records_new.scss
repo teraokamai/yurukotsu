@@ -29,6 +29,21 @@
       }
     }
 
+    .total {
+      #h, #m {
+        width: 48px;
+        background-color: #dededf;
+        text-align: center;
+      }
+
+      span {
+        display: inline-block;
+        height: 40px;
+        line-height: 38px;
+        margin: 0 10px;
+      }
+    }
+
     .time {
       display: inline-block;
       width: 200px;
@@ -37,9 +52,19 @@
     .right {
       float: right;
     }
-  }
 
-  
+    .bottom_link {
+      display: inline-block;
+      height: 39px;
+      width: 125px;
+      position: relative;
+
+      .records_back {
+        position: absolute;
+        bottom: 19px;
+      }
+    }
+  }
 
   .form-group {
     margin-bottom: 13px;

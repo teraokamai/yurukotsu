@@ -23,6 +23,7 @@ class RecordsController < ApplicationController
 
   def new
     @record = Record.new
+    @record.do_on = Time.current.strftime("%Y/%m/%d")
     @record.account_id = current_account.id
     render :layout => "records_new"
   end

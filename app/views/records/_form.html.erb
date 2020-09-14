@@ -4,16 +4,16 @@
     <div class="ui calendar">
       <div class="ui input left icon">
         <i class="calendar icon"></i>
-        <%= form.text_field :do_on, {class:"form-control", placeholder: "Date", value: Time.current} %>
+        <%= form.text_field :do_on, {class:"form-control", placeholder: "Date"} %>
       </div>
     </div>
   </div>
     <div class="form-group time">
     <label for="start_at">開始時刻</label><span class="required">*</span>
     <% if action_name == 'new'%>
-      <%= form.time_field :start_at, {class:"form-control", placeholder: "Start Time",value: Time.current.strftime("%H:%M")} %>
+      <%= form.time_field :start_at, {id: "start_at", class:"form-control", placeholder: "Start Time",value: Time.current.strftime("%H:%M")} %>
     <% else %>
-      <%= form.time_field :start_at, {class:"form-control", placeholder: "Start Time"} %>
+      <%= form.time_field :start_at, {id: "start_at", class:"form-control", placeholder: "Start Time"} %>
     <% end %>
   </div>
   <div class="time-nyoro">
@@ -22,16 +22,19 @@
   <div class="form-group time">
     <label for="end_at">終了時刻</label><span class="required">*</span>
     <% if action_name == 'new'%>
-      <%= form.time_field :end_at, {class:"form-control", placeholder: "End Time",value: Time.current.strftime("%H:%M")} %>
+      <%= form.time_field :end_at, {id: "end_at", class:"form-control", placeholder: "End Time",value: Time.current.strftime("%H:%M")} %>
     <% else %>
-      <%= form.time_field :end_at, {class:"form-control", placeholder: "End Time"} %>
+      <%= form.time_field :end_at, {id: "end_at", class:"form-control", placeholder: "End Time"} %>
     <% end %>
   </div>
   <div class="form-group time">
-    <label for="total">合計時間</label><span class="required">*</span>
-    <%= form.text_field :total, {class:"form-control", placeholder: "Total Time"} %>
+    <label for="total">合計時間</label>
+    <div class="total">
+      <input type="text" id="h"><span>時間</span>
+      <input type="text" id="m"><span>分</span>
+    </div>
+    <%= form.hidden_field :total, {id: "total", class:"form-control"} %>
   </div>
-  <span>分</span>
   <div class="form-group">
     <label for="summary">概要</label><span class="required">*</span>
     <%= form.text_field :summary, {class:"form-control", placeholder: "Summary"} %>
@@ -47,6 +50,11 @@
 
   <%= form.hidden_field :account_id, {value: @record.account_id} %>
   <%= form.hidden_field :calculation, {value: true} %>
+  <p class="bottom_link">
+    <%= link_to records_path, {class: 'records_back'} do %>
+      <i class="angle double left icon"></i>記録一覧に戻る
+    <% end %>
+  </p>
   <%= form.submit "保存", {class: 'ui yellow button right'} %>
 <% end %>
 
@@ -62,4 +70,30 @@
       }
     }
   })
+
+  $('#end_at, #start_at').change(function() {
+  var s = $('#start_at').val();
+  var e = $('#end_at').val();
+  var sd = new Date("2020/02/29 " + s)
+  var ed = new Date("2020/02/29 " + e);
+
+  var result = (ed - sd)/1000/60;
+
+  $('#total').val(result);
+  $('#h').val(parseInt(result / 60));
+  $('#m').val(result % 60);
+  });
+
+  $(document).ready( function(){
+    var s = $('#start_at').val();
+    var e = $('#end_at').val();
+    var sd = new Date("2020/02/29 " + s)
+    var ed = new Date("2020/02/29 " + e);
+
+    var result = (ed - sd)/1000/60;
+
+    $('#total').val(result);
+    $('#h').val(parseInt(result / 60));
+    $('#m').val(result % 60);
+  });
 </script>
