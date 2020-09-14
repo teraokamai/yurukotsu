@@ -5,8 +5,8 @@
   padding: 15px 15px 30px 15px;
 
   .box {
-    width: 600px;
-    height: 680px;
+    width: 620px;
+    height: 750px;
     background-color: #fff;
     margin: 60px auto;
     border-radius: 4px;
@@ -64,6 +64,20 @@
         bottom: 19px;
       }
     }
+
+    trix-editor {
+      height: 200px;
+      overflow-y: auto;
+      background-color: #fff;
+      border: 1px solid #dededf;
+      border-radius: 5px;
+
+      &:focus {
+        border-color: #85B7D9;
+      }
+    }
+
+    
   }
 
   .form-group {
