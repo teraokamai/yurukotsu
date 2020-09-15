@@ -1,6 +1,9 @@
 <div class="back">
   <%= render 'shared/header' %>
   <div class="container">
+    <% if alert %>
+      <div class="ui red message"><%= alert %></div>
+    <% end %>
     <div class="box">
       <h1>マイページ</h1>
       <%= link_to '編集', edit_account_registration_path, { class: 'ui yellow button right' } %>

@@ -2,6 +2,7 @@
 
 class Accounts::RegistrationsController < Devise::RegistrationsController
   layout "devise_registrations"
+  before_action :check_guest, only: %i[edit destroy]
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -72,4 +73,13 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def check_guest
+    if resource.username == "ゲストユーザー"
+      flash[:alert] = "ゲストユーザーの変更・削除はできません。"
+      render "show", layout: "devise_account"
+    end
+  end
 end
