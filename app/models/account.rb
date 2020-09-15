@@ -16,7 +16,14 @@ class Account < ApplicationRecord
       where(conditions).first
     end
   end
-  # validates :email, uniqueness: false
+
+  # def self.guest
+  #   if find_by(username: "ゲストユーザー")
+  #   find_or_create_by(username: "ゲストユーザー") do |account|
+  #     account.password = "guestuser123"
+  #     account.email = "guest@com"
+  #   end
+  # end
 
   validates_uniqueness_of :username
   validates_presence_of :username
