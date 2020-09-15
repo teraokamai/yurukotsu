@@ -5,12 +5,19 @@
   padding: 15px 15px 30px 15px;
 
   .box {
-    width: 620px;
-    height: 750px;
+    width: 630px;
+    min-height: 750px;
     background-color: #fff;
     margin: 60px auto;
     border-radius: 4px;
     padding: 20px 26px;
+
+    .form-group {
+      margin-bottom: 13px;
+      .input .form-control.date {
+        padding-left: 2.67142857em;
+      }
+    }
 
     .required {
       margin-left: 2px;
@@ -78,10 +85,6 @@
     }
 
     
-  }
-
-  .form-group {
-    margin-bottom: 13px;
   }
 
   label {

@@ -3,9 +3,16 @@ ja:
   activerecord:
     models:
       category: カテゴリー
+      record: レコード
     attributes:
       category:
         name: カテゴリ名
+      record:
+        summary: 概要
+        do_on: '日にち'
+        start_at: '開始時刻'
+        end_at: '終了時刻'
+        total: ''
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -30,11 +30,10 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new record_params
-    if @record.save!
+    if @record.save
       redirect_to records_path
     else
-      # render :layout => "records_new"
-      render "new"
+      render "new", layout: "records_new"
     end
   end
 
@@ -48,8 +47,7 @@ class RecordsController < ApplicationController
     if @record.update(record_params)
       redirect_to records_path
     else
-      # render :layout => "records_new"
-      render "edit"
+      render "edit", layout: "records_new"
     end
   end
 
