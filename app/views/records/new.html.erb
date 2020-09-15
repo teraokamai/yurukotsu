@@ -4,11 +4,13 @@
     <div class="box">
       <h1>記録の追加</h1>
       <% if @record.errors.any? %>
-      <ul>
-        <% @record.errors.full_messages.each do |err| %>
-        <li><%= err %></li>
-        <% end %>
-      </ul>
+      <div id="error_explanation">
+        <ul>
+          <% @record.errors.full_messages.each do |err| %>
+          <li><%= err %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
       <%= render 'form' %>
     </div>
