@@ -15,7 +15,7 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if current_account
-      Category.create(name: "カテゴリなし", account_id: current_account.id)
+      Category.create(name: "カテゴリなし", account_id: current_account.id, isDefault: true)
     end
   end
 
