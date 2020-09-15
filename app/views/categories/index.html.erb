@@ -33,7 +33,7 @@
                     <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow-disable' } do %>
                       <i class="pencil alternate icon"></i>
                     <% end %>
-                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red-disable', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red-disable' } do %>
                       <i class="minus icon"></i>
                     <% end %>
                   </td>
@@ -42,7 +42,7 @@
                     <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow' } do %>
                       <i class="pencil alternate icon"></i>
                     <% end %>
-                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?\nこのカテゴリに属する記録のカテゴリは「カテゴリなし」となります。" } } do %>
                       <i class="minus icon"></i>
                     <% end %>
                   </td>
