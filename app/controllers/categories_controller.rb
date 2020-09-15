@@ -23,6 +23,9 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+    if @category.isDefault == true
+      redirect_to categories_path, alert: "「" + @category.name + "」は編集できません。"
+    end
   end
 
   def update
@@ -36,13 +39,17 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy
-    redirect_to categories_path
+    if @category.isDefault == true
+      redirect_to categories_path, alert: "「" + @category.name + "」は削除できません。"
+    else
+      @category.destroy
+      redirect_to categories_path, notice: "カテゴリを削除しました。"
+    end
   end
 
   private
 
   def categories_params
-    params.require(:category).permit(:name, :account_id)
+    params.require(:category).permit(:name, :account_id, :isDefault)
   end
 end

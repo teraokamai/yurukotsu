@@ -41,6 +41,24 @@
       margin-bottom: 13px;
     }
 
+    .yellow-disable {
+      background-color: #fbbd0880;
+      color: #fff;
+      &:hover, &:active, &:focus {
+        background-color: #fbbd0880;
+        color: #fff;
+      }
+    }
+
+    .red-disable {
+      background-color: #db282980;
+      color: #fff;
+      &:hover, &:active, &:focus {
+        background-color: #db282980;
+      color: #fff;
+      }
+    }
+
     .bottom_link {
       display: inline-block;
       height: 39px;
