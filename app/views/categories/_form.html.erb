@@ -5,6 +5,7 @@
       <%= f.text_field :name %>
     </div>
     <%= f.hidden_field :account_id, value: @category.account_id %>
+    <%= f.hidden_field :isDefault, value: false %>
     <%= f.submit '保存', {class: 'ui yellow button right'}  %>
   <% end %>
 </div>

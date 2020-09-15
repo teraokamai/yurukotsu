@@ -1,6 +1,16 @@
 <div class="back">
   <%= render 'shared/header' %>
   <div class="container">
+    <% if notice %>
+      <div class="ui green message">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="ui red message">
+        <%= alert %>
+      </div>
+    <% end %>
     <div class="top">
       <div class="box">
         <h1>カテゴリ一覧</h1>
@@ -18,14 +28,25 @@
               <% @categories.each do |category| %>
               <tr>
                 <td><%= category.name %></td>
-                <td>
-                  <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow' } do %>
-                    <i class="pencil alternate icon"></i>
-                  <% end %>
-                  <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
-                    <i class="minus icon"></i>
-                  <% end %>
-                </td>
+                <% if category.isDefault == true %>
+                  <td>
+                    <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow-disable' } do %>
+                      <i class="pencil alternate icon"></i>
+                    <% end %>
+                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red-disable', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                      <i class="minus icon"></i>
+                    <% end %>
+                  </td>
+                <% else %>
+                  <td>
+                    <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow' } do %>
+                      <i class="pencil alternate icon"></i>
+                    <% end %>
+                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                      <i class="minus icon"></i>
+                    <% end %>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
