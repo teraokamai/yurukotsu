@@ -42,6 +42,13 @@ class CategoriesController < ApplicationController
     if @category.isDefault == true
       redirect_to categories_path, alert: "「" + @category.name + "」は削除できません。"
     else
+      records = Record.where(category_id: @category.id)
+
+      if records
+        defaultCategory = Category.where("isDefault == 1 and account_id == ?", current_account.id)
+        Record.where(category_id: @category.id).update_all(category_id: defaultCategory[0].id)
+      end
+
       @category.destroy
       redirect_to categories_path, notice: "カテゴリを削除しました。"
     end
