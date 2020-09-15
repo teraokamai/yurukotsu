@@ -66,11 +66,12 @@
             <table class="ui fixed table" >
               <thead>
                 <tr>
-                  <th width="150px">日付</th>
+                  <th width="127px">日付</th>
                   <th width="114px">時間</th>
                   <th>概要</th>
+                  <th width="120px">カテゴリ</th>
                   <th width="87px">合計</th>
-                  <th width="170px"></th>
+                  <th width="105px"></th>
                 </tr>
               </thead>
               <tbody>
@@ -79,6 +80,7 @@
                     <td><%= l record.do_on, format: :long %></td>
                     <td><%= l record.start_at, format: :short %> 〜 <%= l record.end_at, format: :short %></td>
                     <td><%= link_to record.summary, record_path(record) %></td>
+                    <td><%= record.category.name %></td>
                     <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
                     <td>
                       <%= link_to edit_record_path(record), { class: 'ui circular icon button yellow' } do %>
