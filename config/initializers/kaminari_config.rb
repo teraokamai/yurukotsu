@@ -10,5 +10,5 @@ Kaminari.configure do |config|
   # config.page_method_name = :page
   # config.param_name = :page
   # config.max_pages = nil
-  # config.params_on_first_page = false
+  config.params_on_first_page = true
 end
