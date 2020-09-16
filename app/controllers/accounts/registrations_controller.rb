@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::RegistrationsController < Devise::RegistrationsController
-  layout "devise_registrations"
+  layout 'devise_registrations'
   before_action :check_guest, only: %i[edit destroy]
 
   # before_action :configure_sign_up_params, only: [:create]
@@ -15,14 +15,15 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    if current_account
-      Category.create(name: "カテゴリなし", account_id: current_account.id, isDefault: true)
-    end
+
+    return unless current_account
+
+    Category.create(name: 'カテゴリなし', account_id: current_account.id, isDefault: true)
   end
 
   def show
     if current_account
-      render :layout => "devise_account"
+      render layout: 'devise_account'
     else
       redirect_to root_path
     end
@@ -77,9 +78,9 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   private
 
   def check_guest
-    if resource.username == "ゲストユーザー"
-      flash[:alert] = "ゲストユーザーの変更・削除はできません。"
-      render "show", layout: "devise_account"
-    end
+    return unless resource.username == 'ゲストユーザー'
+
+    flash[:alert] = 'ゲストユーザーの変更・削除はできません。'
+    render 'show', layout: 'devise_account'
   end
 end

@@ -1,0 +1,46 @@
+AllCops:
+  TargetRubyVersion: 2.6.6
+  TargetRailsVersion: 6.0.3.2
+  Exclude:
+    - 'test/**/*'
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
+    - 'bin/*'
+    - 'app/helpers/*'
+    - 'config/spring.rb'
+    - 'config/puma.rb'
+    - 'Gemfile'
+    - 'app/jobs/*'
+    - 'db/migrate/*'
+    - 'config/environments/production.rb'
+    - 'config/initializers/devise.rb'
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
+# ドキュメントの無いpublic classを許可する
+Style/Documentation:
+  Enabled: false
+
+# 文字列のfreezeをチェックしない
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# namespace付きのクラスの記載方法(::)許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 40
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/MethodLength:
+  Max: 20
+
+Lint/UnusedMethodArgument:
+  Enabled:
+    - 'app/controllers/application_controller.rb'
