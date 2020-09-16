@@ -98,6 +98,9 @@
             <p class="norecords">右上の＋ボタンを押して記録を追加してください。</p>
             <% end %>
           <!-- ページネーション -->
+          <div class="pagenation-box">
+            <%= paginate @records %>
+          </div>
           <!-- <div class="ui pagination menu">
             <a class="active item">
               1
