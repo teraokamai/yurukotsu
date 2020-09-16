@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_09_15_042715) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_042715) do
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
-    t.integer "record_id", null: false
+    t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_042715) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -58,10 +61,10 @@ ActiveRecord::Schema.define(version: 2020_09_15_042715) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "account_id"
+    t.bigint "account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "isDefault"
+    t.boolean "is_default"
     t.index ["account_id"], name: "index_categories_on_account_id"
   end
 
@@ -71,10 +74,10 @@ ActiveRecord::Schema.define(version: 2020_09_15_042715) do
     t.time "end_at"
     t.string "summary"
     t.text "content"
-    t.integer "total"
+    t.integer "total", null: false
     t.boolean "calculation", null: false
-    t.integer "account_id"
-    t.integer "category_id"
+    t.bigint "account_id"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_id"], name: "index_records_on_account_id"
