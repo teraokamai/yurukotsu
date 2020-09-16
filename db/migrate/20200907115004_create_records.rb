@@ -8,11 +8,11 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       # 終了時刻
       t.time :end_at, null: true
       # 概要
-      t.string :summary, nul: true
+      t.string :summary, nul: false
       # 内容
       t.text :content, null: true
       # 合計時間
-      t.time :total, null: true
+      t.integer :total, null: false
       # 計算に含めるか
       t.boolean :calculation, null: false, defaulst: false
 
