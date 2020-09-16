@@ -6,7 +6,7 @@ class RecordsController < ApplicationController
     day_end = Time.zone.now.end_of_day
     lastweek = day_start - 6.day
 
-    @records = Record.where(account_id: current_account.id).order(do_on: :desc, start_at: :desc, end_at: :desc)
+    @records = Record.where(account_id: current_account.id).order(do_on: :desc, start_at: :desc, end_at: :desc).page(params[:page])
     @day = Record.where("account_id == ? and do_on between ? and ?", current_account.id, day_start, day_end).sum(:total)
     @week = Record.where("account_id == ? and do_on between ? and ?", current_account.id, lastweek, day_end).sum(:total)
     @all = Record.where(account_id: current_account.id).sum(:total)

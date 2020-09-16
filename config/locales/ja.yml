@@ -217,3 +217,10 @@ ja:
       long: "%Y/%m/%d"
       short: "%H:%M"
     pm: 午後
+  views:
+    pagination:
+      first: <i class="angle double left icon"></i>
+      last: <i class="angle double right icon"></i>
+      previous: <i class="angle left icon"></i>
+      next: <i class="angle right icon"></i>
+      truncate: "..."
