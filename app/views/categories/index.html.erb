@@ -28,7 +28,7 @@
               <% @categories.each do |category| %>
               <tr>
                 <td><%= category.name %></td>
-                <% if category.isDefault == true %>
+                <% if category.is_default == true %>
                   <td>
                     <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow-disable' } do %>
                       <i class="pencil alternate icon"></i>

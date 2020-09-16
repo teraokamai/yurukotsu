@@ -18,7 +18,7 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
 
     return unless current_account
 
-    Category.create(name: 'カテゴリなし', account_id: current_account.id, isDefault: true)
+    Category.create(name: 'カテゴリなし', account_id: current_account.id, is_default: 'true')
   end
 
   def show
@@ -41,8 +41,8 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    Record.where('account_id == ?', current_account.id).destroy_all
-    Category.where('account_id == ?', current_account.id).destroy_all
+    Record.where('account_id = ?', current_account.id).destroy_all
+    Category.where('account_id = ?', current_account.id).destroy_all
     super
   end
 
