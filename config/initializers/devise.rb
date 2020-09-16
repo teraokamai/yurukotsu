@@ -23,7 +23,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
-  # with default "from" parameter.
+  # with default 'from' parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
@@ -75,7 +75,7 @@ Devise.setup do |config|
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]` will
   # enable it only for database authentication.
-  # For API-only applications to support authentication "out-of-the-box", you will likely want to
+  # For API-only applications to support authentication 'out-of-the-box', you will likely want to
   # enable this with :database unless you are using a custom strategy.
   # The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
@@ -241,8 +241,8 @@ Devise.setup do |config|
   # config.encryptor = :sha512
 
   # ==> Scopes configuration
-  # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "users/sessions/new". It's turned off by default because it's slower if you
+  # Turn scoped views on. Before rendering 'sessions/new', it will first check for
+  # 'users/sessions/new'. It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = true
 
@@ -262,7 +262,7 @@ Devise.setup do |config|
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists.
   #
-  # The "*/*" below is required to match Internet Explorer requests.
+  # The '*/*' below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.

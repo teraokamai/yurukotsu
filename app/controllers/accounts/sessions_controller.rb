@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::SessionsController < Devise::SessionsController
-  layout "devise"
+  layout 'devise'
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -20,17 +20,17 @@ class Accounts::SessionsController < Devise::SessionsController
   # end
 
   def new_guest
-    account = Account.find_by(username: "ゲストユーザー")
+    account = Account.find_by(username: 'ゲストユーザー')
     if !account
-      Account.create(username: "ゲストユーザー", password: "guestuser123", email: "guest@com")
-      account = Account.find_by(username: "ゲストユーザー")
+      Account.create(username: 'ゲストユーザー', password: 'guestuser123', email: 'guest@com')
+      account = Account.find_by(username: 'ゲストユーザー')
       sign_in account
-      Category.create(name: "カテゴリなし", account_id: current_account.id, isDefault: true)
+      Category.create(name: 'カテゴリなし', account_id: current_account.id, isDefault: true)
     else
       sign_in account
     end
 
-    redirect_to root_path, notice: "ゲストユーザーでログインしました。"
+    redirect_to root_path, notice: 'ゲストユーザーでログインしました。'
   end
 
   # protected
