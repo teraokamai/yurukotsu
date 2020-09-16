@@ -25,7 +25,7 @@ class Accounts::SessionsController < Devise::SessionsController
       Account.create(username: 'ゲストユーザー', password: 'guestuser123', email: 'guest@com')
       account = Account.find_by(username: 'ゲストユーザー')
       sign_in account
-      Category.create(name: 'カテゴリなし', account_id: current_account.id, isDefault: true)
+      Category.create(name: 'カテゴリなし', account_id: current_account.id, is_default: true)
     else
       sign_in account
     end
