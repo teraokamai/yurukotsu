@@ -40,9 +40,11 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    Record.where('account_id == ?', current_account.id).destroy_all
+    Category.where('account_id == ?', current_account.id).destroy_all
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
