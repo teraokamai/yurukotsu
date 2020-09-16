@@ -7,25 +7,24 @@ class RecordsController < ApplicationController
     lastweek = day_start - 6.day
 
     @records = Record.where(account_id: current_account.id).order(do_on: :desc, start_at: :desc, end_at: :desc).page(params[:page])
-    @day = Record.where("account_id == ? and do_on between ? and ?", current_account.id, day_start, day_end).sum(:total)
-    @week = Record.where("account_id == ? and do_on between ? and ?", current_account.id, lastweek, day_end).sum(:total)
+    @day = Record.where('account_id == ? and do_on between ? and ?', current_account.id, day_start, day_end).sum(:total)
+    @week = Record.where('account_id == ? and do_on between ? and ?', current_account.id, lastweek, day_end).sum(:total)
     @all = Record.where(account_id: current_account.id).sum(:total)
     @categories = Category.where(account_id: current_account.id)
-    # @records = Record.page(params[:page]).order("created_at desc")
 
-    render :layout => "records"
+    render layout: 'records'
   end
 
   def show
     @record = Record.find(params[:id])
-    render :layout => "records_show"
+    render layout: 'records_show'
   end
 
   def new
     @record = Record.new
-    @record.do_on = Time.current.strftime("%Y/%m/%d")
+    @record.do_on = Time.current.strftime('%Y/%m/%d')
     @record.account_id = current_account.id
-    render :layout => "records_new"
+    render layout: 'records_new'
   end
 
   def create
@@ -33,13 +32,13 @@ class RecordsController < ApplicationController
     if @record.save
       redirect_to records_path
     else
-      render "new", layout: "records_new"
+      render 'new', layout: 'records_new'
     end
   end
 
   def edit
     @record = Record.find(params[:id])
-    render :layout => "records_new"
+    render layout: 'records_new'
   end
 
   def update
@@ -47,7 +46,7 @@ class RecordsController < ApplicationController
     if @record.update(record_params)
       redirect_to records_path
     else
-      render "edit", layout: "records_new"
+      render 'edit', layout: 'records_new'
     end
   end
 
