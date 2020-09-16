@@ -35,12 +35,24 @@ Metrics/AbcSize:
   Enabled: true
   Max: 40
 
+# 1行あたりの長さ
 Metrics/LineLength:
   Max: 160
 
+# メソッドの長さ
 Metrics/MethodLength:
   Max: 20
 
 Lint/UnusedMethodArgument:
   Enabled:
     - 'app/controllers/application_controller.rb'
+
+# スコープ内の無駄なローカル変数の割り当てチェック
+Lint/UselessAssignment:
+  Enabled:
+    - 'app/controllers/application_controller.rb'
+
+# 条件式と同時に変数代入
+Lint/AssignmentInCondition:
+  Enabled:
+      - 'app/controllers/application_controller.rb'
