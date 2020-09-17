@@ -1,6 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.6.6
-  TargetRailsVersion: 6.0.3.2
+  NewCops: enable
   Exclude:
     - 'test/**/*'
     - 'node_modules/**/*'
@@ -14,6 +13,7 @@ AllCops:
     - 'db/migrate/*'
     - 'config/environments/production.rb'
     - 'config/initializers/devise.rb'
+    - 'vender/**/*'
 
 # 日本語のコメントを許可する
 Style/AsciiComments:
@@ -36,7 +36,7 @@ Metrics/AbcSize:
   Max: 40
 
 # 1行あたりの長さ
-Metrics/LineLength:
+Layout/LineLength:
   Max: 160
 
 # メソッドの長さ
@@ -55,4 +55,4 @@ Lint/UselessAssignment:
 # 条件式と同時に変数代入
 Lint/AssignmentInCondition:
   Enabled:
-      - 'app/controllers/application_controller.rb'
+    - 'app/controllers/application_controller.rb'
