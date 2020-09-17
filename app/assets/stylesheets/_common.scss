@@ -102,8 +102,13 @@ header {
   content
 ===================== */
 .back {
+  min-height: 100%;
   background-color: #9dc8cf;
   background-image: url("https://www.transparenttextures.com/patterns/white-paperboard.png");
+
+  .container {
+    min-height: 100%;
+  }
 }
 
 /* =====================
