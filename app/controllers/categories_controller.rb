@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     if @category.is_default == true
-      redirect_to categories_path, alert: "「#{@category.name}」は削除できません。"い
+      redirect_to categories_path, alert: "「#{@category.name}」は削除できません。"
     else
       records = Record.where(category_id: @category.id)
 
