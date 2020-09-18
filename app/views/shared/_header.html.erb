@@ -1,6 +1,6 @@
 <header>
   <div id="logo">
-    <%= link_to image_tag("/assets/images/logo.png"), root_path %>
+    <%= link_to image_tag(asset_path('logo.png')), root_path %>
   </div>
   <div class="right" >
     <% if account_signed_in? %>
