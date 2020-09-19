@@ -1,11 +1,11 @@
-<div style="width: 300px;">
+<div>
   <%= form_for(category, html: {class: "ui form"}) do |f| %>
     <div class="form-group">
       <%= f.label :name, 'カテゴリ名'%>
       <%= f.text_field :name %>
     </div>
     <%= f.hidden_field :account_id, value: @category.account_id %>
-    <%= f.hidden_field :isDefault, value: false %>
-    <%= f.submit '保存', {class: 'ui yellow button right'}  %>
+    <%= f.hidden_field :is_default, value: false %>
+    <%= f.submit '保存', {class: 'ui yellow-button button right'}  %>
   <% end %>
 </div>
