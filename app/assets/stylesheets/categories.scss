@@ -1,73 +1,74 @@
 @import "semantic-ui";
 @import 'common';
 
-.container {
-  padding: 15px 15px 30px 15px;
+.back {
+  .container {
+    padding: 15px 15px 30px 15px;
 
-  .box {
-    max-width: 350px;
-    min-height: 210px;
-    margin: calc((100vh - 370px) / 2) auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px 26px;
+    .box {
+      max-width: 350px;
+      margin: calc((100vh - 365px) / 2) auto;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px 26px;
+      
+      h1 {
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        padding-bottom: 4px;
+        color: #111111;
+        display: inline-block;
+      }
 
-    h1 {
-      font-weight: 400;
-      font-size: 28px;
-      line-height: 1.2;
-      margin-bottom: 10px;
-      padding-bottom: 4px;
-      color: #111111;
-      display: inline-block;
-    }
+      .right {
+        float: right;
+      }
 
-    .right {
-      float: right;
-    }
+      .category-table {
+        text-align: center;
+      }
 
-    .category-table {
-      text-align: center;
-    }
+      label {
+        font-weight: 700;
+        font-size: 13px;
+        padding-left: 2px;
+        padding-bottom: 2px;
+      }
 
-    label {
-      font-weight: 700;
-      font-size: 13px;
-      padding-left: 2px;
-      padding-bottom: 2px;
-    }
+      .form-group {
+        margin-bottom: 13px;
+      }
 
-    .form-group {
-      margin-bottom: 13px;
-    }
-
-    .yellow-disable {
-      background-color: #fbbd0880;
-      color: #fff;
-      &:hover, &:active, &:focus {
+      .yellow-disable {
         background-color: #fbbd0880;
         color: #fff;
+        &:hover, &:active, &:focus {
+          background-color: #fbbd0880;
+          color: #fff;
+        }
       }
-    }
 
-    .red-disable {
-      background-color: #db282980;
-      color: #fff;
-      &:hover, &:active, &:focus {
+      .red-disable {
         background-color: #db282980;
-      color: #fff;
+        color: #fff;
+        &:hover, &:active, &:focus {
+          background-color: #db282980;
+        color: #fff;
+        }
       }
-    }
 
-    .bottom_link {
-      display: inline-block;
-      height: 39px;
-      width: 100px;
-      position: relative;
+      .bottom_link {
+        display: inline-block;
+        height: 39px;
+        width: 100px;
+        position: relative;
 
-      .category-back {
-        position: absolute;
-        bottom: 0;
+        .category-back {
+          position: absolute;
+          bottom: 0;
+        }
       }
     }
   }
