@@ -5,7 +5,7 @@
   padding: 15px 15px 30px 15px;
 
   .box {
-    width: 350px;
+    max-width: 350px;
     min-height: 210px;
     margin: calc((100vh - 370px) / 2) auto;
     margin-left: auto;
@@ -62,7 +62,7 @@
     .bottom_link {
       display: inline-block;
       height: 39px;
-      width: 90px;
+      width: 100px;
       position: relative;
 
       .category-back {
