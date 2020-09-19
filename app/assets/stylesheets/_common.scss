@@ -6,7 +6,6 @@ header {
   height: 60px;
   width: 100%;
   min-width: 420px;
-  box-shadow: 1px 6px 5px #00000061;
   padding: 5px 10px;
   position: relative;
 
@@ -84,7 +83,7 @@ header {
 }
 
 /* =====================
-  Error
+  error
 ===================== */
 
 #error_explanation {
@@ -103,11 +102,61 @@ header {
 ===================== */
 .back {
   min-height: 100%;
-  background-color: #9dc8cf;
+  background-color: #efe5cb;
   background-image: url("https://www.transparenttextures.com/patterns/white-paperboard.png");
 
   .container {
     min-height: 100%;
+
+    .box {
+      background-color: #fff;
+      border: 1px solid #d4d4d5;
+      border-radius: 5px;
+    }
+
+    .notice-message {
+      background-color: #d0ead3;
+      color: #4b7750;
+      border: 1px solid #9dcaa2;
+      border-radius: 5px;
+      font-size: 1em;
+      margin-bottom: 10px;
+      padding: 1em 1.5em;
+
+    }
+    
+    /* =====================
+      button
+    ===================== */
+    .yellow-button {
+      background-color: #f9c738;
+      color: #fff;
+
+      &:hover, &:active, &:focus {
+        background-color: #ffde7c;
+        color: #fff;
+      }
+    }
+
+    .blue-button {
+      background-color: #4e7784;
+      color: #fff;
+
+      &:hover, &:active, &:focus {
+        background-color: #6296a7;
+        color: #fff;
+      }
+    }
+
+    .red-button {
+      background-color: #ce5252;
+      color: #fff;
+
+      &:hover, &:active, &:focus {
+        background-color: #ef7474;
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -119,5 +168,8 @@ footer {
   text-align: center;
   background-color: #2b4552;
   color: #c1d9f1;
-  line-height: 50px;
+  
+  .copyright {
+    line-height: 60px;
+  }
 }
