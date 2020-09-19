@@ -2,19 +2,38 @@
   <div id="logo">
    <%= link_to image_tag('logo.png'), root_path %> 
   </div>
-  <div class="right" >
+  <div class="right" id="js-right" >
     <% if account_signed_in? %>
-      <ul class="header-menu">
-        <li>
-            <a href=""><%= current_account.username %> <i class="caret down icon"></i></a>
-            <ul>
-              <li class="child"><%= link_to '記録一覧',records_path %></li>
-              <li class="child"><%= link_to 'カテゴリ一覧',categories_path %></li>
-              <li class="child"><%= link_to 'マイページ',accounts_show_path %></li>
-              <li class="child"><%= link_to 'ログアウト',destroy_account_session_path, {method: :delete,data: { confirm: "ログアウトしてよろしいですか?" } } %></li>
-            </ul>
-          </li>
-      </ul>
+      <nav class="global-nav">
+        <ul class="global-nav__list">
+          <li class="global-nav__item"><%= link_to '記録一覧',records_path %></li>
+          <li class="global-nav__item"><%= link_to 'カテゴリ一覧',categories_path %></li>
+          <li class="global-nav__item"><%= link_to 'マイページ',accounts_show_path %></li>
+          <li class="global-nav__item"><%= link_to 'ログアウト',destroy_account_session_path, {method: :delete,data: { confirm: "ログアウトしてよろしいですか?" } } %></li>
+        </ul>
+      </nav>
+      <div class="hamburger" id="js-hamburger">
+        <span class="hamburger__line hamburger__line--1"></span>
+        <span class="hamburger__line hamburger__line--2"></span>
+        <span class="hamburger__line hamburger__line--3"></span>
+      </div>
+      <div class="black-bg" id="js-black-bg"></div>
     <% end %>
   </div>
 </header>
+
+<script>
+  function toggleNav() {
+  var right = document.getElementById('js-right');
+  var hamburger = document.getElementById('js-hamburger');
+  var blackBg = document.getElementById('js-black-bg');
+
+  hamburger.addEventListener('click', function() {
+    right.classList.toggle('nav-open');
+  });
+  blackBg.addEventListener('click', function() {
+    right.classList.remove('nav-open');
+  });
+}
+toggleNav();
+</script>
