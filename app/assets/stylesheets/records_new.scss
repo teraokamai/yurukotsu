@@ -4,7 +4,6 @@
 .container {
   padding: 15px 15px 30px 15px;
 
-  // スマホ用
   @media only screen and (max-width: 767px) {
     .time {
       display: block;
@@ -15,7 +14,6 @@
     }
   }
 
-  // PC用
   @media only screen and (min-width: 768px) {
     .box {
       width: 630px;
@@ -37,7 +35,6 @@
         }
       }
     }
-
   }
 
   .box {
@@ -102,8 +99,6 @@
         border-color: #85B7D9;
       }
     }
-
-    
   }
 
   label {
