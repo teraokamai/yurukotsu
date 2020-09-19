@@ -4,9 +4,43 @@
 .container {
   padding: 15px 15px 30px 15px;
 
+  // スマホ用
+  @media only screen and (max-width: 767px) {
+    .time {
+      display: block;
+    }
+
+    .time-nyoro {
+      display: none;
+    }
+  }
+
+  // PC用
+  @media only screen and (min-width: 768px) {
+    .box {
+      width: 630px;
+      min-height: 750px;
+
+      .time {
+        display: inline-block;
+      }
+
+      .time-nyoro {
+        display: inline-block;
+        width: 38px;
+        padding: 10px;
+        height: 25px;
+        vertical-align: middle;
+  
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+
   .box {
-    width: 630px;
-    min-height: 750px;
     margin: 60px auto;
     padding: 20px 26px;
 
@@ -20,18 +54,6 @@
     .required {
       margin-left: 2px;
       color: #f54747;
-    }
-
-    .time-nyoro {
-      display: inline-block;
-      width: 38px;
-      padding: 10px;
-      height: 25px;
-      vertical-align: middle;
-
-      img {
-        width: 100%;
-      }
     }
 
     .total {
@@ -50,7 +72,6 @@
     }
 
     .time {
-      display: inline-block;
       width: 200px;
     }
 
