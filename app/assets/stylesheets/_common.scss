@@ -21,6 +21,113 @@ header {
     height: auto;
   }
 
+  .global-nav {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    padding-top: 40px;
+    background-color: #2b4552;
+    transition: all .6s;
+    z-index: 200;
+    overflow-y: auto;
+  }
+
+  .hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 300;
+  }
+
+  .global-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .global-nav__item {
+    text-align: center;
+  }
+
+  .global-nav__item a {
+    display: block;
+    height: 60px;
+    line-height: 58px;
+    text-decoration: none;
+    color: #c5c5c5;
+    font-weight: 500;
+    font-size: 22px;
+  }
+
+  .global-nav__item a:hover {
+    background-color: #517c92;
+  }
+
+  .hamburger__line {
+    position: absolute;
+    left: 11px;
+    width: 18px;
+    height: 1px;
+    background-color: #fff;
+    transition: all .6s;
+  }
+
+  .hamburger__line--1 {
+    top: 14px;
+  }
+
+  .hamburger__line--2 {
+    top: 20px;
+  }
+
+  .hamburger__line--3 {
+    top: 26px;
+  }
+
+  .black-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .6s;
+    cursor: pointer;
+  }
+
+  /* 表示された時用のCSS */
+  .nav-open .global-nav {
+    right: 0;
+  }
+
+  .nav-open .black-bg {
+    opacity: .8;
+    visibility: visible;
+  }
+
+  .nav-open .hamburger__line--1 {
+    transform: rotate(405deg);
+    top: 20px;
+  }
+
+  .nav-open .hamburger__line--2 {
+    width: 0;
+    left: 50%;
+  }
+
+  .nav-open .hamburger__line--3 {
+    transform: rotate(-405deg);
+    top: 20px;
+  }
+
   .right {
     height: 50px;
     display: inline-block;
@@ -30,54 +137,6 @@ header {
     position: absolute;
     right: 10px;
     padding: 5px;
-
-    .header-menu {
-      height: 2rem;
-      margin: 0 auto;
-      width: 230px;
-      font-size: 18px;
-      font-weight: 400;
-      position: absolute;
-      right: -15px;
-      z-index: 1;
-
-      li {
-        list-style: none;
-        position: relative;
-
-        & > a {
-          color: #98c2c9;
-          display: block;
-          height: 40px;
-          line-height: 35px;
-          text-align: center;
-          text-decoration: none;
-          width: 100%;
-        }
-
-        li.child {
-          background-color: #325363;
-          height: 0;
-          overflow: hidden;
-          transition: 0.5s;
-          top: 10px;
-          left: -25px;
-          
-          a {
-            line-height: 47px;
-          }
-
-          &:hover {
-            background-color: #447188;
-          }
-        }
-
-        &:hover li.child {
-          height: 50px;
-          overflow: visible;
-        }
-      }
-    }
   }
 }
 
