@@ -5,7 +5,7 @@
       <div class="ui red message"><%= alert %></div>
     <% end %>
     <% if notice and notice != "" %>
-      <div class="ui green message"><%= notice %></div>
+      <div class="notice-message"><%= notice %></div>
     <% end %>
     <div class="box">
       <h1>ログイン</h1>
@@ -28,12 +28,12 @@
           </div>
         </div>
         <% end %>
-        <%= f.submit "ログイン", { class: 'ui yellow button login' } %>
-        <%= link_to "ゲストユーザーでログイン", accounts_guest_sign_in_path, { class: 'ui yellow button login', method: :post } %>
+        <%= f.submit "ログイン", { class: 'ui yellow-button button login' } %>
+        <%= link_to "ゲストユーザーでログイン", accounts_guest_sign_in_path, { class: 'ui yellow-button button login', method: :post } %>
       <% end %>
       <div class="box-newusr">
         <p><span>はじめての方はこちら</span></p>
-        <%= link_to "新規アカウントを作成", new_account_registration_path, { class: 'ui teal button' } %>
+        <%= link_to "新規アカウントを作成", new_account_registration_path, { class: 'ui blue-button button' } %>
       </div>
     </div>
   </div>

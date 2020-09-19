@@ -2,7 +2,7 @@
   <%= render 'shared/header' %>
   <div class="container">
     <% if notice %>
-      <div class="ui green message">
+      <div class="notice-message">
         <%= notice %>
       </div>
     <% end %>
@@ -14,7 +14,7 @@
     <div class="top">
       <div class="box">
         <h1>カテゴリ一覧</h1>
-        <%= link_to new_category_path, { class: 'ui circular icon teal button right'} do %>
+        <%= link_to new_category_path, { class: 'ui circular icon blue-button button right'} do %>
           <i class="plus icon"></i>
         <% end %>
         <table class="ui fixed table category-table">
@@ -39,10 +39,10 @@
                   </td>
                 <% else %>
                   <td>
-                    <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow' } do %>
+                    <%= link_to edit_category_path(category), { class: 'ui circular icon button yellow-button' } do %>
                       <i class="pencil alternate icon"></i>
                     <% end %>
-                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?\nこのカテゴリに属する記録のカテゴリは「カテゴリなし」となります。" } } do %>
+                    <%= link_to category_path(category), { method: :delete, class: 'ui circular icon button red-button', data: { confirm: "このデータを削除してもよろしいですか?\nこのカテゴリに属する記録のカテゴリは「カテゴリなし」となります。" } } do %>
                       <i class="minus icon"></i>
                     <% end %>
                   </td>

@@ -2,7 +2,7 @@
   <%= render 'shared/header' %>
   <div class="container">
     <% if notice %>
-      <div class="ui green message">
+      <div class="notice-message">
         <%= notice %>
       </div>
     <% end %>
@@ -49,7 +49,7 @@
         </a> -->
           <div class="right menu category-select">
             <p>
-              <%= link_to new_record_path, { class: 'ui icon teal button'} do %>
+              <%= link_to new_record_path, { class: 'ui icon blue-button button'} do %>
                 <i class="plus icon"></i>
               <% end %>
             </p>
@@ -83,10 +83,10 @@
                     <td><%= record.category.name %></td>
                     <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
                     <td>
-                      <%= link_to edit_record_path(record), { class: 'ui circular icon button yellow' } do %>
+                      <%= link_to edit_record_path(record), { class: 'ui circular icon button yellow-button' } do %>
                         <i class="pencil alternate icon"></i>
                       <% end %>
-                      <%= link_to record_path(record), { method: :delete, class: 'ui circular icon button red', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                      <%= link_to record_path(record), { method: :delete, class: 'ui circular icon button red-button', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
                       <i class="minus icon"></i>
                       <% end %>
                     </td>
@@ -101,23 +101,6 @@
           <div class="pagenation-box">
             <%= paginate @records %>
           </div>
-          <!-- <div class="ui pagination menu">
-            <a class="active item">
-              1
-            </a>
-            <div class="disabled item">
-              ...
-            </div>
-            <a class="item">
-              10
-            </a>
-            <a class="item">
-              11
-            </a>
-            <a class="item">
-              12
-            </a>
-          </div> -->
         </p>
       </div>
     </div>
