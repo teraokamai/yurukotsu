@@ -2,7 +2,7 @@
   <%= render 'shared/header' %>
   <div class="container">
     <div class="box">
-      <h1>記録</h1>
+      <h1>記録の詳細</h1>
       <%= link_to '編集', edit_record_path(@record), { class: 'ui yellow-button button right' } %>
       <div class="output">
         <label for="summary">概要</label>
@@ -45,6 +45,9 @@
         </div>
       </div>
       <div class="bottom_button">
+        <%= link_to records_path, {class: 'records_back'} do %>
+          <i class="angle double left icon"></i>記録一覧に戻る
+        <% end %>
         <%= link_to '編集', edit_record_path(@record), { class: 'ui yellow-button button right' } %>
       </div>
     </div>
