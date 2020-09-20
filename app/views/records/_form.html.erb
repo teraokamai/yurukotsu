@@ -40,7 +40,7 @@
     <%= form.text_field :summary, {class:"form-control", placeholder: "Summary"} %>
   </div>
   <div class="form-group">
-    <label for="category_id">カテゴリー</label>
+    <label for="category_id">カテゴリ</label>
      <%= form.collection_select :category_id, Category.where(account_id: current_account.id), :id, :name %>
   </div>
   <div class="form-group">
