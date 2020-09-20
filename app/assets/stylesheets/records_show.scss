@@ -51,6 +51,13 @@
 
     .bottom_button {
       height: 40px;
+      position: relative;
+
+      .records_back {
+        display: inline-block;
+        position: absolute;
+        bottom: 2px;
+      }
     }
 
     .time-nyoro {

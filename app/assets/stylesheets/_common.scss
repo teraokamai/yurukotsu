@@ -6,7 +6,9 @@ header {
   height: 60px;
   width: 100%;
   padding: 5px 10px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 
   #logo {
     height: 50px;
@@ -140,6 +142,11 @@ header {
   }
 }
 
+.header_tmp {
+  width: 100%;
+  height: 60px;
+}
+
 /* =====================
   error
 ===================== */
@@ -170,6 +177,24 @@ header {
       background-color: #fff;
       border: 1px solid #d4d4d5;
       border-radius: 5px;
+
+      .yellow-disable {
+        background-color: #fbbd0880;
+        color: #fff;
+        &:hover, &:active, &:focus {
+          background-color: #fbbd0880;
+          color: #fff;
+        }
+      }
+
+      .red-disable {
+        background-color: #db282980;
+        color: #fff;
+        &:hover, &:active, &:focus {
+          background-color: #db282980;
+        color: #fff;
+        }
+      }
     }
 
     .notice-message {

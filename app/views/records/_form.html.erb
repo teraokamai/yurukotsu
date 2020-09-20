@@ -4,16 +4,16 @@
     <div class="ui calendar">
       <div class="ui input left icon">
         <i class="calendar icon"></i>
-        <%= form.text_field :do_on, {class:"form-control date", placeholder: "Date"} %>
+        <%= form.text_field :do_on, {class:"form-control date"} %>
       </div>
     </div>
   </div>
     <div class="form-group time">
     <label for="start_at">開始時刻</label><span class="required">*</span>
     <% if action_name == 'new'%>
-      <%= form.time_field :start_at, {id: "start_at", class:"form-control", placeholder: "Start Time",value: Time.current.strftime("%H:%M")} %>
+      <%= form.time_field :start_at, {id: "start_at", class:"form-control", value: Time.current.strftime("%H:%M")} %>
     <% else %>
-      <%= form.time_field :start_at, {id: "start_at", class:"form-control", placeholder: "Start Time"} %>
+      <%= form.time_field :start_at, {id: "start_at", class:"form-control"} %>
     <% end %>
   </div>
   <div class="time-nyoro">
@@ -22,9 +22,9 @@
   <div class="form-group time">
     <label for="end_at">終了時刻</label><span class="required">*</span>
     <% if action_name == 'new'%>
-      <%= form.time_field :end_at, {id: "end_at", class:"form-control", placeholder: "End Time",value: Time.current.strftime("%H:%M")} %>
+      <%= form.time_field :end_at, {id: "end_at", class:"form-control", value: Time.current.strftime("%H:%M")} %>
     <% else %>
-      <%= form.time_field :end_at, {id: "end_at", class:"form-control", placeholder: "End Time"} %>
+      <%= form.time_field :end_at, {id: "end_at", class:"form-control"} %>
     <% end %>
   </div>
   <div class="form-group time">
@@ -37,10 +37,10 @@
   </div>
   <div class="form-group">
     <label for="summary">概要</label><span class="required">*</span>
-    <%= form.text_field :summary, {class:"form-control", placeholder: "Summary"} %>
+    <%= form.text_field :summary, {class:"form-control"} %>
   </div>
   <div class="form-group">
-    <label for="category_id">カテゴリー</label>
+    <label for="category_id">カテゴリ</label>
      <%= form.collection_select :category_id, Category.where(account_id: current_account.id), :id, :name %>
   </div>
   <div class="form-group">
