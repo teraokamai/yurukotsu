@@ -177,6 +177,24 @@ header {
       background-color: #fff;
       border: 1px solid #d4d4d5;
       border-radius: 5px;
+
+      .yellow-disable {
+        background-color: #fbbd0880;
+        color: #fff;
+        &:hover, &:active, &:focus {
+          background-color: #fbbd0880;
+          color: #fff;
+        }
+      }
+
+      .red-disable {
+        background-color: #db282980;
+        color: #fff;
+        &:hover, &:active, &:focus {
+          background-color: #db282980;
+        color: #fff;
+        }
+      }
     }
 
     .notice-message {
