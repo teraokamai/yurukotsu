@@ -12,13 +12,13 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "ui form"} ) do |f| %>
         <div class="field box-username">
           <%= f.label :username ,'ユーザー名'%>
-          <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "username" %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username"%>
         </div>
         <div class="field box-password">
           <div class="column-left"><%= f.label :password , 'パスワード' %></div>
           <!-- <div class="column-right"><%= link_to "パスワードを忘れた場合", new_account_password_path %> -->
           <!-- </div> -->
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
+          <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
         <% if devise_mapping.rememberable? %>
         <div class="field">

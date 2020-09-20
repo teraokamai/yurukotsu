@@ -7,22 +7,22 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field box-username">
           <%= f.label :username ,'ユーザー名'%>
-          <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "username" %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
         </div>
 
         <div class="field">
           <%= f.label :email, 'メールアドレス' %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email address"  %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field box-password">
           <%= f.label :password ,'パスワード(6文字以上)' %>
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "password"  %>
+          <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
 
         <div class="field box-passwordconfirm">
           <%= f.label :password_confirmation, 'パスワード確認' %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
         <div class="box-regist"><%= f.submit "新規登録", { class: 'ui yellow-button button login' }  %></div>
