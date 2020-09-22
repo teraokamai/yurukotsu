@@ -1,0 +1,44 @@
+<!-- 全体 -->
+<div class="ui bottom attached tab segment <%= 'active' if @active_page == 'all_page' %>" data-tab="all">
+  <p>
+    <% if @all_records.length != 0 %>
+      <table class="ui fixed table" >
+        <thead>
+          <tr>
+            <th width="127px">日付</th>
+            <th width="114px">時間</th>
+            <th>概要</th>
+            <th width="120px">カテゴリ</th>
+            <th width="87px">合計</th>
+            <th width="105px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @all_records.each do |record| %>
+            <tr>
+              <td><%= l record.do_on, format: :long %></td>
+              <td><%= l record.start_at, format: :short %> 〜 <%= l record.end_at, format: :short %></td>
+              <td><%= link_to record.summary, record_path(record) %></td>
+              <td><%= record.category.name %></td>
+              <td><%= record.total / 60 %>時間<%= record.total % 60 %>分</td>
+              <td>
+                <%= link_to edit_record_path(record), { class: 'ui circular icon button yellow-button' } do %>
+                  <i class="pencil alternate icon"></i>
+                <% end %>
+                <%= link_to record_path(record), { method: :delete, class: 'ui circular icon button red-button', data: { confirm: "このデータを削除してもよろしいですか?" } } do %>
+                <i class="minus icon"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <p class="norecords">右上の＋ボタンを押して記録を追加してください。</p>
+      <% end %>
+    <!-- ページネーション -->
+    <div class="pagenation-box">
+      <%= paginate @all_records, param_name: 'all_page', remote: true, params: {active_page: 'all_page'} %>
+    </div>
+  </p>
+</div>
