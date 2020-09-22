@@ -18,7 +18,7 @@
           <p><%= @week / 60 %>時間<%= @week % 60 %>分</p>
         </div>
         <div class="time-content">
-          <div class="time-header">今までの合計</div>
+          <div class="time-header">全ての合計</div>
           <p><%= @all / 60 %>時間<%= @all % 60 %>分</p>
         </div>
       </div>
@@ -45,10 +45,10 @@
           本日
         </a>
         <a class="item <%= 'active' if @active_page == 'week_page' %>" data-tab="week">
-          週間
+          1週間
         </a>
         <a class="item <%= 'active' if @active_page == 'all_page' %>" data-tab="all">
-          全体
+          全て
         </a>
           <div class="right menu category-select">
             <p>
@@ -65,9 +65,9 @@
       </div>
       <!-- 本日 -->
       <%= render 'day_page' %>
-      <!-- 週間 -->
+      <!-- 1週間 -->
       <%= render 'week_page' %>
-      <!-- 全体 -->
+      <!-- 全て -->
       <%= render 'all_page' %>
     </div>
   </div>
