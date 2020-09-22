@@ -20,10 +20,10 @@ class Accounts::SessionsController < Devise::SessionsController
   # end
 
   def new_guest
-    account = Account.find_by(username: 'ゲストユーザー')
+    account = Account.find_by(email: 'guest@com')
     if !account
-      Account.create(username: 'ゲストユーザー', password: 'guestuser123', email: 'guest@com')
-      account = Account.find_by(username: 'ゲストユーザー')
+      Account.create(password: 'guestuser123', email: 'guest@com')
+      account = Account.find_by(email: 'guest@com')
       sign_in account
       Category.create(name: 'カテゴリなし', account_id: current_account.id, is_default: true)
     else
