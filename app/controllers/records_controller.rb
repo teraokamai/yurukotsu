@@ -2,16 +2,34 @@ class RecordsController < ApplicationController
   before_action :authenticate_account!
 
   def index
+
+    if params[:active_page] != nil
+      @active_page = params[:active_page]
+    else
+      @active_page = 'day_page'
+    end
+
     day_start = Time.zone.now.beginning_of_day
     day_end = Time.zone.now.end_of_day
     lastweek = day_start - 6.day
-
-    @records = Record.where(account_id: current_account.id).order(do_on: :desc, start_at: :desc, end_at: :desc).page(params[:page])
+    
+    # 合計時間取得
     @day = Record.where('account_id = ? and do_on between ? and ?', current_account.id, day_start, day_end).sum(:total)
     @week = Record.where('account_id = ? and do_on between ? and ?', current_account.id, lastweek, day_end).sum(:total)
     @all = Record.where(account_id: current_account.id).sum(:total)
-    @categories = Category.where(account_id: current_account.id)
+    
+    # 記録取得
+    @day_records = Record.where('account_id = ? and do_on between ? and ?', current_account.id, day_start, day_end).order(start_at: :desc, end_at: :desc).page(params[:day_page])
+    @week_records = Record.where('account_id = ? and do_on between ? and ?', current_account.id, lastweek, day_end).order(do_on: :desc, start_at: :desc, end_at: :desc).page(params[:week_page])
+    @all_records = Record.where(account_id: current_account.id).order(do_on: :desc, start_at: :desc, end_at: :desc).page(params[:all_page])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
 
+    @categories = Category.where(account_id: current_account.id)
+    
     render layout: 'records'
   end
 
