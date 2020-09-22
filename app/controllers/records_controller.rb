@@ -11,15 +11,15 @@ class RecordsController < ApplicationController
 
     day_start = Time.zone.now.beginning_of_day
     day_end = Time.zone.now.end_of_day
-    lastweek = day_start - 6.day
+    lastweek = day_start - 5.day
     
     # 合計時間取得
-    @day = Record.where('account_id = ? and do_on between ? and ?', current_account.id, day_start, day_end).sum(:total)
+    @day = Record.where('account_id = ? and do_on = ?', current_account.id, day_end).sum(:total)
     @week = Record.where('account_id = ? and do_on between ? and ?', current_account.id, lastweek, day_end).sum(:total)
     @all = Record.where(account_id: current_account.id).sum(:total)
     
     # 記録取得
-    @day_records = Record.where('account_id = ? and do_on between ? and ?', current_account.id, day_start, day_end).order(start_at: :desc, end_at: :desc).page(params[:day_page])
+    @day_records = Record.where('account_id = ? and do_on = ?', current_account.id, day_end).order(start_at: :desc, end_at: :desc).page(params[:day_page])
     @week_records = Record.where('account_id = ? and do_on between ? and ?', current_account.id, lastweek, day_end).order(do_on: :desc, start_at: :desc, end_at: :desc).page(params[:week_page])
     @all_records = Record.where(account_id: current_account.id).order(do_on: :desc, start_at: :desc, end_at: :desc).page(params[:all_page])
     
