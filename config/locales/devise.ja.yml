@@ -2,7 +2,6 @@ ja:
   activerecord:
     attributes:
       account:
-        username: ユーザー名
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -26,8 +25,6 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-    models:
-      account: ユーザ
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
