@@ -5,12 +5,6 @@
       <h2>マイデータ更新</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "ui form"}) do |f| %> 
       <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="field">
-        <%= f.label :username, 'ユーザー名' %>
-        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-      </div>
-
       <div class="field">
         <%= f.label :email, 'メールアドレス' %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

@@ -80,7 +80,7 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   private
 
   def check_guest
-    return unless resource.username == 'ゲストユーザー'
+    return unless resource.email == 'guest@com'
 
     flash[:alert] = 'ゲストユーザーの変更・削除はできません。'
     render 'show', layout: 'devise_account'
