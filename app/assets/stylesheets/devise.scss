@@ -5,7 +5,7 @@
 .box {
   width: 350px;
   min-height: 410px;
-  margin: 60px auto;
+  margin: calc((100vh - 120px - 434px)/2) auto;
   padding: 20px 26px;
 
   .login {
