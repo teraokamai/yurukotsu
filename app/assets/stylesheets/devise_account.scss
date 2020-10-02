@@ -6,13 +6,13 @@
   padding: 15px 15px 30px 15px;
 
   h1 {
-    width: 70%;
     display: inline-block;
+    width: 70%;
   }
 
   .box {
-    min-width: 245px;
     max-width: 600px;
+    min-width: 245px;
     padding: 20px 26px;
 
     @media only screen and (min-height: 511px) {
@@ -28,30 +28,30 @@
       text-align: center;
 
       label {
-        display: inline-block;
-        height: 40px;
-        width: 100%;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 36px;
         background: #f9fafb;
         border: 1px solid #dededf;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        height: 40px;
+        line-height: 36px;
+        width: 100%;
       }
 
       .el {
         display: inline-block;
-        width: 100%;
-        min-height: 50px;
         font-size: 14px;
-        border-left: 1px solid #dededf;
-        border-right: 1px solid #dededf;
         border-bottom: 1px solid #dededf;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        border-left: 1px solid #dededf;
+        border-right: 1px solid #dededf;
         line-height: 48px;
+        min-height: 50px;
         padding: 0 15px;
+        width: 100%;
         word-wrap: normal;
       }
     }
@@ -70,10 +70,9 @@
   }
 
   label {
-    font-weight: 700;
     font-size: 13px;
-    padding-left: 2px;
+    font-weight: 700;
     padding-bottom: 2px;
+    padding-left: 2px;
   }
 }
-

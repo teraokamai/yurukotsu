@@ -1,23 +1,17 @@
+@import "variables";
+
 /* =====================
   header
 ===================== */
-header {
-  background-color: #2b4552;
+.header {
+  background-color: $c-navy;
   height: 60px;
-  width: 100%;
   padding: 5px 10px;
   position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1;
 
-  #logo {
-    height: 50px;
-    font-size: 40px;
-    font-weight: 900;
-    color: #cee4ef;
-    display: inline-block;
-  }
-  
   img {
     max-width: 80%;
     height: auto;
@@ -30,7 +24,7 @@ header {
     width: 300px;
     height: 100vh;
     padding-top: 40px;
-    background-color: #2b4552;
+    background-color: $c-navy;
     transition: all .6s;
     z-index: 200;
     overflow-y: auto;
@@ -75,7 +69,7 @@ header {
     left: 11px;
     width: 18px;
     height: 1px;
-    background-color: #fff;
+    background-color: $c-white;
     transition: all .6s;
   }
 
@@ -98,36 +92,38 @@ header {
     width: 100vw;
     height: 100vh;
     z-index: 100;
-    background-color: #000;
+    background-color: $c-black;
     opacity: 0;
     visibility: hidden;
     transition: all .6s;
     cursor: pointer;
   }
 
-  /* 表示された時用のCSS */
-  .nav-open .global-nav {
-    right: 0;
-  }
+  /* ナビゲーションが開いた時 */
+  .nav-open {
+    .global-nav {
+      right: 0;
+    }
 
-  .nav-open .black-bg {
-    opacity: .8;
-    visibility: visible;
-  }
+    .black-bg {
+      opacity: .8;
+      visibility: visible;
+    }
 
-  .nav-open .hamburger__line--1 {
-    transform: rotate(405deg);
-    top: 20px;
-  }
+    .hamburger__line--1 {
+      transform: rotate(405deg);
+      top: 20px;
+    }
+  
+    .hamburger__line--2 {
+      width: 0;
+      left: 50%;
+    }
 
-  .nav-open .hamburger__line--2 {
-    width: 0;
-    left: 50%;
-  }
-
-  .nav-open .hamburger__line--3 {
-    transform: rotate(-405deg);
-    top: 20px;
+    .hamburger__line--3 {
+      transform: rotate(-405deg);
+      top: 20px;
+    }
   }
 
   .right {
@@ -142,6 +138,13 @@ header {
   }
 }
 
+.header__logo {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 900;
+  height: 50px;
+}
+
 .header_tmp {
   width: 100%;
   height: 60px;
@@ -150,7 +153,6 @@ header {
 /* =====================
   error
 ===================== */
-
 #error_explanation {
   ul {
     padding: 0;
@@ -174,25 +176,27 @@ header {
     min-height: 100%;
 
     .box {
-      background-color: #fff;
+      background-color: $c-white;
       border: 1px solid #d4d4d5;
       border-radius: 5px;
 
       .yellow-disable {
         background-color: #fbbd0880;
-        color: #fff;
+        color: $c-white;
+
         &:hover, &:active, &:focus {
           background-color: #fbbd0880;
-          color: #fff;
+          color: $c-white;
         }
       }
 
       .red-disable {
         background-color: #db282980;
-        color: #fff;
+        color: $c-white;
+
         &:hover, &:active, &:focus {
           background-color: #db282980;
-        color: #fff;
+        color: $c-white;
         }
       }
     }
@@ -216,37 +220,37 @@ header {
       margin-bottom: 10px;
       padding: 1em 1.5em;
     }
-    
+
     /* =====================
       button
     ===================== */
     .yellow-button {
       background-color: #f9c738;
-      color: #fff;
+      color: $c-white;
 
       &:hover, &:active, &:focus {
         background-color: #ffde7c;
-        color: #fff;
+        color: $c-white;
       }
     }
 
     .blue-button {
       background-color: #4e7784;
-      color: #fff;
+      color: $c-white;
 
       &:hover, &:active, &:focus {
         background-color: #6296a7;
-        color: #fff;
+        color: $c-white;
       }
     }
 
     .red-button {
       background-color: #ce5252;
-      color: #fff;
+      color: $c-white;
 
       &:hover, &:active, &:focus {
         background-color: #ef7474;
-        color: #fff;
+        color: $c-white;
       }
     }
   }
@@ -255,13 +259,13 @@ header {
 /* =====================
   footer
 ===================== */
-footer {
+.footer {
   height: 60px;
   text-align: center;
-  background-color: #2b4552;
-  color: #c1d9f1;
-  
-  .copyright {
-    line-height: 60px;
-  }
+  background-color: $c-navy;
+  color: $c-light-blue;
+}
+
+.copyright {
+  line-height: 60px;
 }
