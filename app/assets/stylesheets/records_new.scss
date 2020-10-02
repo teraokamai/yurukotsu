@@ -25,10 +25,10 @@
 
       .time-nyoro {
         display: inline-block;
-        width: 38px;
-        padding: 10px;
         height: 25px;
+        padding: 10px;
         vertical-align: middle;
+        width: 38px;
   
         img {
           width: 100%;
@@ -49,15 +49,15 @@
     }
 
     .required {
+      color: $c-red;
       margin-left: 2px;
-      color: #f54747;
     }
 
     .total {
       #h, #m {
-        width: 57px;
         background-color: #dededf;
         text-align: center;
+        width: 57px;
       }
 
       span {
@@ -79,22 +79,22 @@
     .bottom_link {
       display: inline-block;
       height: 39px;
-      width: 125px;
       position: relative;
+      width: 125px;
 
       .records_back {
-        position: absolute;
         bottom: 19px;
+        position: absolute;
       }
     }
 
     trix-editor {
-      height: 200px;
-      overflow-y: auto;
-      background-color: #fff;
+      background-color: $c-white;
       border: 1px solid #dededf;
       border-radius: 5px;
-
+      height: 200px;
+      overflow-y: auto;
+      
       &:focus {
         border-color: #85B7D9;
       }
@@ -102,10 +102,10 @@
   }
 
   label {
-    font-weight: 700;
     font-size: 13px;
-    padding-left: 2px;
+    font-weight: 700;
     padding-bottom: 2px;
+    padding-left: 2px;
   }
 }
 
