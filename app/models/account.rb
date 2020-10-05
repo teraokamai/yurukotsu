@@ -5,7 +5,6 @@ class Account < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-        #  authentication_keys: [:username]
 
   # def self.find_first_by_auth_conditions(warden_conditions)
   #   conditions = warden_conditions.dup
@@ -15,9 +14,5 @@ class Account < ApplicationRecord
   #   else
   #     where(conditions).first
   #   end
-  # end
-
-  # def email_changed?
-  #   false
   # end
 end
