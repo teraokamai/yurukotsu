@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  it 'カテゴリ名、アカウントID、作成日、更新日、デフォルトフラグがあれば有効であること' do
+  it 'カテゴリ名、作成日、更新日、デフォルトフラグ、アカウントがあれば有効であること' do
     @account = Account.new( 
       email:      "test@example.com",
       password:   "test123"
