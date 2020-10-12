@@ -29,16 +29,37 @@ RSpec.describe Record, type: :model do
 
   it '日付がなければ無効であること' do
     @record = Record.new(do_on: nil)
-    expect(@record.valid?).to eq(false)
+    @record.valid?
+    expect(@record.errors[:do_on]).to include('は必須項目です。')
   end
-
+  
+  it '開始時刻がなければ無効であること' do
+    @record = Record.new(do_on: nil)
+    @record.valid?
+    expect(@record.errors[:do_on]).to include('は必須項目です。')
+  end
+  
+  it '終了時刻がなければ無効であること' do
+    @record = Record.new(do_on: nil)
+    @record.valid?
+    expect(@record.errors[:do_on]).to include('は必須項目です。')
+  end
+  
+  it '概要がなければ無効であること' do
+    @record = Record.new(do_on: nil)
+    @record.valid?
+    expect(@record.errors[:do_on]).to include('は必須項目です。')
+  end
+  
   it '合計時間がなければ無効であること' do
     @record = Record.new(total: nil)
-    expect(@record.valid?).to eq(false)
+    @record.valid?
+    expect(@record.errors[:do_on]).to include('は必須項目です。')
   end
-
+  
   it '計算フラグがなければ無効であること' do
     @record = Record.new(calculation: nil)
-    expect(@record.valid?).to eq(false)
+    @record.valid?
+    expect(@record.errors[:do_on]).to include('は必須項目です。')
   end
 end
